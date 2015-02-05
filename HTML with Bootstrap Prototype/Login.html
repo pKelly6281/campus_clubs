@@ -1,0 +1,167 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head><title>
+	Log In
+</title><link href="../Styles/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form method="post" action="Login.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="ctl01">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEyMDAyNTY1NjJkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBSZjdGwwMCRNYWluQ29udGVudCRMb2dpblVzZXIkUmVtZW1iZXJNZSXZBflZDUDWuzE82U287ANiVZleKkr0edh7bML54rXb" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['ctl01'];
+if (!theForm) {
+    theForm = document.ctl01;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=VFJVvbKEuQ99Xh9RUxJa6mtzMmwq9c7VhyHnpjToVxe9Qfr9TeGsH8Q-fioV5vdE_d4fS8NlctDm6_JHZtLBG6oPXQAsuVlC1HzR_cZYrz41&amp;t=635145356180000000" type="text/javascript"></script>
+
+
+<script src="/WebResource.axd?d=XYrrBQTUAxCN_-2RtgFrX-Dl35_H3tdnqtBtEtWpcJJKLJ0iZxKyMOWchqMRvKcc16msjKC9dnxTUIZfpNmqpDlZsOQnLVUSZpRtH_VEvHI1&amp;t=635145356180000000" type="text/javascript"></script>
+<script src="/WebResource.axd?d=4YjyGQu7bF3oCJZf7E2MKrUl_UnrVcGlJbdDNcH1jpWqfqWzYXNU-UKgq3Lqmw_L8g434yTx67xYbkjPipcrooRiBoZQnlmMEDhvVlc4y-o1&amp;t=635145356180000000" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAXgOPGBJsCdrDb40THH7hOTrVJzD9epthGmOWrcxXKP7u1vquycB/s6+IJJa4hgd+jsl1raoinWIrD1aNCfPQQ5CQtH8leGQTiMCnhMu4O3Eb1XPavmfFf7jqyT49Qc0jQ3Bd7fPUWHDYc4nIgVpeAq" />
+</div>
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    Campus Clubs
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                
+                        [ <a href="Login.aspx" id="HeadLoginView_HeadLoginStatus">Log In</a> ]
+                    
+            </div>
+            <div class="clear hideSkiplink">
+                <a href="#NavigationMenu_SkipLink"><img alt="Skip Navigation Links" src="/WebResource.axd?d=AKNuA6qCQfJM9OtGXjUFzIaUXslxYRawemfBpoqlo_D0fObHfUiTXTbcilTNJpHhgeWQsWTHhpWvDkF0_MNhaiE-4nrMtd3lFA5Z13sWLGE1&amp;t=635145356180000000" width="0" height="0" style="border-width:0px;" /></a><div class="menu" id="NavigationMenu">
+	<ul class="level1">
+		<li><a class="level1" href="../Default.aspx">Home</a></li><li><a class="level1" href="../About.aspx">About</a></li><li><a class="level1" href="../Interests.aspx">Interests</a></li><li><a class="level1" href="../ClubList.aspx">Club List</a></li><li><a class="level1" href="../Requests.aspx">Requests</a></li>
+	</ul>
+</div><a id="NavigationMenu_SkipLink"></a>
+            </div>
+        </div>
+        <div class="main">
+            
+    <h2>
+        Log In
+    </h2>
+    <p>
+        Please enter your email and password.
+        <a id="MainContent_RegisterHyperLink" href="Register.aspx?ReturnUrl=">Register</a> if you don't have an account.
+    </p>
+    
+            <span class="failureNotification">
+                
+            </span>
+            <div id="MainContent_LoginUser_LoginUserValidationSummary" class="failureNotification" style="display:none;">
+
+</div>
+            <div class="accountInfo">
+                <fieldset class="login">
+                    <legend>Account Information</legend>
+                    <p>
+                        <label for="MainContent_LoginUser_UserName" id="MainContent_LoginUser_UserNameLabel">Email:</label>
+                        <input name="ctl00$MainContent$LoginUser$UserName" type="text" id="MainContent_LoginUser_UserName" class="textEntry" />
+                        <span id="MainContent_LoginUser_UserNameRequired" title="User Name is required." class="failureNotification" style="visibility:hidden;">*</span>
+                    </p>
+                    <p>
+                        <label for="MainContent_LoginUser_Password" id="MainContent_LoginUser_PasswordLabel">Password:</label>
+                        <input name="ctl00$MainContent$LoginUser$Password" type="password" id="MainContent_LoginUser_Password" class="passwordEntry" />
+                        <span id="MainContent_LoginUser_PasswordRequired" title="Password is required." class="failureNotification" style="visibility:hidden;">*</span>
+                    </p>
+                    <p>
+                        <input id="MainContent_LoginUser_RememberMe" type="checkbox" name="ctl00$MainContent$LoginUser$RememberMe" />
+                        <label for="MainContent_LoginUser_RememberMe" id="MainContent_LoginUser_RememberMeLabel" class="inline">Keep me logged in</label>
+                    </p>
+                </fieldset>
+                <p class="submitButton">
+                    <input type="submit" name="ctl00$MainContent$LoginUser$LoginButton" value="Log In" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$LoginUser$LoginButton&quot;, &quot;&quot;, true, &quot;LoginUserValidationGroup&quot;, &quot;&quot;, false, false))" id="MainContent_LoginUser_LoginButton" />
+                </p>
+            </div>
+        
+
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("MainContent_LoginUser_LoginUserValidationSummary"));
+var Page_Validators =  new Array(document.getElementById("MainContent_LoginUser_UserNameRequired"), document.getElementById("MainContent_LoginUser_PasswordRequired"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var MainContent_LoginUser_LoginUserValidationSummary = document.all ? document.all["MainContent_LoginUser_LoginUserValidationSummary"] : document.getElementById("MainContent_LoginUser_LoginUserValidationSummary");
+MainContent_LoginUser_LoginUserValidationSummary.validationGroup = "LoginUserValidationGroup";
+var MainContent_LoginUser_UserNameRequired = document.all ? document.all["MainContent_LoginUser_UserNameRequired"] : document.getElementById("MainContent_LoginUser_UserNameRequired");
+MainContent_LoginUser_UserNameRequired.controltovalidate = "MainContent_LoginUser_UserName";
+MainContent_LoginUser_UserNameRequired.errormessage = "User Name is required.";
+MainContent_LoginUser_UserNameRequired.validationGroup = "LoginUserValidationGroup";
+MainContent_LoginUser_UserNameRequired.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+MainContent_LoginUser_UserNameRequired.initialvalue = "";
+var MainContent_LoginUser_PasswordRequired = document.all ? document.all["MainContent_LoginUser_PasswordRequired"] : document.getElementById("MainContent_LoginUser_PasswordRequired");
+MainContent_LoginUser_PasswordRequired.controltovalidate = "MainContent_LoginUser_Password";
+MainContent_LoginUser_PasswordRequired.errormessage = "Password is required.";
+MainContent_LoginUser_PasswordRequired.validationGroup = "LoginUserValidationGroup";
+MainContent_LoginUser_PasswordRequired.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+MainContent_LoginUser_PasswordRequired.initialvalue = "";
+//]]>
+</script>
+
+<script type='text/javascript'>new Sys.WebForms.Menu({ element: 'NavigationMenu', disappearAfter: 500, orientation: 'horizontal', tabIndex: 0, disabled: false });</script>
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        //]]>
+</script>
+</form>
+</body>
+</html>
