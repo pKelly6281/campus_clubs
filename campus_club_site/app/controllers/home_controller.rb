@@ -9,4 +9,8 @@ class HomeController < ApplicationController
 
   def about
   end
+  def view
+  end
+  def requests
+  end
 end

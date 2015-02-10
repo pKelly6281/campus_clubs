@@ -1,2 +1,53 @@
-<h1>Club#view</h1>
-<p>Find me in app/views/club/view.html.erb</p>
+
+<div>
+	<h1>Computer Society</h1>
+	<p><%= link_to "Edit Club", clubEdit_path%></p>
+</div>
+
+
+<div class="row" >
+
+
+	<div class="col-md-4 div-border"> Meetings and Events
+		<table class="table table-condensed">
+			<tr>
+				<th>Location</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>Murdock 120</td>
+				<td>Computer Society General Meeting</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="col-md-4">Description
+		<table class="table condensed">
+			<tr>
+				<th>Bio</th>
+			</tr>
+			<tr>
+				<td>We love computers</td>
+			</tr>
+
+
+		</table>
+
+	</div>
+
+
+	<div class="col-md-4">Eboard
+		<table class="table table-condensed" > 
+			<tr> 
+				<th>Member Name</th>
+				<th>Position</th>
+			</tr>
+
+			<tr>
+				<td>Patrick Kelly</td>
+				<td>President</td>
+			</tr>
+		</table>
+	</div>
+
+</div>

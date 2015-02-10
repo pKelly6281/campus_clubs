@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
-  get 'club/view'
+  get 'clubView' =>'club#view'
 
-  get 'club/edit'
+  get 'clubEdit' =>'club#edit'
 
-  get 'club/add'
+  get 'clubAdd' =>'club#add'
 
-  get 'home/signup'
+  get 'signup' =>'home#signup'
 
-  get 'home/login'
-
-  get 'home/about'
+  get 'login' => 'home#login'
+  get 'viewSelected' => 'home#view'
+  get 'requests' => 'home#requests'
+  get  'about' =>'home#about'
   root 'home#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
