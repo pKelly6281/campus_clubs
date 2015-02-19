@@ -1,0 +1,10 @@
+Prototype TODOs
+	Edit Button
+		use Javascript to make the button link to edit page
+	Add Club Double Show
+		use Bootstrap Modals to show all of the clubs after you hit addClub
+Functionality TODOs
+	Favorite Button
+		add AJAX to submit the favorites to database
+		also change the glypcon due to the change in favorite
+Bug Fixes TODOs
