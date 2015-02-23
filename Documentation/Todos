@@ -1,10 +1,36 @@
-Prototype TODOs
-	Edit Button
-		use Javascript to make the button link to edit page
+Javascript TODOs
 	Add Club Double Show
 		use Bootstrap Modals to show all of the clubs after you hit addClub
+		*******WE HAD ALOTTA PROBLESMS********************************
 Functionality TODOs
+
+	Plan out MVC patterns
+		what controllers/models/vies
+	One controller/model/view per 2 weeks.
+
 	Favorite Button
 		add AJAX to submit the favorites to database
 		also change the glypcon due to the change in favorite
 Bug Fixes TODOs
+
+TimeLine 
+
+1)User Controlller
+	a) Sign up
+	b) requestView 
+	c) Your Clubs
+2) Seesion Controller
+	a) Log in
+	b) log out
+3) Clubs Controller
+	a) addClub
+	b) editClub
+	c) favoriteClub
+	d) request add
+**Ask Mark about the club delete functionality for every year**
+Extra Functionality
+1) Events Controller
+	a) events view
+	b) events add
+	c) events delete
+	d) events edit
