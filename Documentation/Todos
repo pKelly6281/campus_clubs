@@ -16,6 +16,7 @@ Bug Fixes TODOs
 TimeLine 
 
 1) User Controlller
+	NOTE:User password_digest needs to be reviewed. 
 	a) Sign up
 	b) requestView 
 	c) Your Clubs
