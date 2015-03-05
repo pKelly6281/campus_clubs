@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
     
     has_secure_password
-	validates :password_digest, length: { minimum: 6 } 	#should be password not password_confirmation 
+	validates :password, length: { minimum: 6 } 	#should be password not password_confirmation 
 
 	#has secure password links us to the password object on this line
 	#creating user password confirmation. Most of our code for making secure passwords comes from the rails method below

@@ -1,17 +1,21 @@
 Rails.application.routes.draw do
+
+
   get 'clubView' =>'club#view'
 
   get 'clubEdit' =>'club#edit'
 
   get 'clubAdd' =>'club#add'
 
-  get 'signup' =>'home#signup'
+  get 'signup' =>'users#new'
 
   get 'login' => 'home#login'
   get 'viewSelected' => 'home#view'
   get 'requests' => 'home#requests'
   get  'about' =>'home#about'
   root 'home#home'
+
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
