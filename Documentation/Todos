@@ -17,12 +17,12 @@ TimeLine
 
 1) User Controlller
 	NOTE:User password_digest needs to be reviewed. 
-	a) Sign up
+	a) Sign up:::DONE
 	b) requestView 
 	c) Your Clubs
 2) Seesion Controller
-	a) Log in
-	b) log out
+	a) Log in:::DONE
+	b) log out::::DONE 
 3) Clubs Controller
 	a) addClub
 	b) editClub
