@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessor :remember_token
   	before_save { self.email = email.downcase }#runs before we execute code before
 
 	#first name and last name validation 
@@ -20,4 +21,17 @@ class User < ActiveRecord::Base
 
 	#has secure password links us to the password object on this line
 	#creating user password confirmation. Most of our code for making secure passwords comes from the rails method below
+	def authenticated?(attribute, token)
+  		digest = send("#{attribute}_digest")
+    	return false if digest.nil?
+    	BCrypt::Password.new(digest).is_password?(token)
+  end
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
+  def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation)
+  end
 end

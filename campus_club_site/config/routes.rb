@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'sessions/new'
+
   get 'clubView' =>'club#view'
 
   get 'clubEdit' =>'club#edit'
@@ -9,7 +11,10 @@ Rails.application.routes.draw do
 
   get 'signup' =>'users#new'
 
-  get 'login' => 'home#login'
+
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
   get 'viewSelected' => 'home#view'
   get 'requests' => 'home#requests'
   get  'about' =>'home#about'
