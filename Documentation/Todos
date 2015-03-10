@@ -28,6 +28,8 @@ TimeLine
 	b) editClub
 	c) favoriteClub
 	d) request add
+		1) have optional dropdown which shows previous entered positions.
+		
 **Ask Mark about the club delete functionality for every year**
 Extra Functionality
 1) Events Controller
