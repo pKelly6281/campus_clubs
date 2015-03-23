@@ -1,7 +1,6 @@
 Javascript TODOs
 	Add Club Double Show
-		use Bootstrap Modals to show all of the clubs after you hit addClub
-		*******WE HAD ALOTTA PROBLESMS********************************
+		show all clubs in modal
 Functionality TODOs
 
 	Plan out MVC patterns
