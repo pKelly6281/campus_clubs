@@ -1,45 +1,23 @@
 <h1>Add Club</h1>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3"> 
+  <div class="col-md-6 col-md-offset-3">  
+	<%= form_for (@club) do |f| %>
+		<%= render 'shared/error_messages_club'%>
 
-		<form>
-			<div class="form-group">
-				<label>Club Name</label>
-				<input type="text" class="form-control" placeholder="Enter Club">
-			</div>
-			
-			<br><br>
-			
-			<div class="form-group">
-				<label>Club Description</label>
-				<input type="text" class="form-control" placeholder="Enter Description">
-			</div>
+		<%= f.label :name,'Club Name' %>
+		<%= f.text_field :name, class: 'form-control' %>
 
-			<br><br>
+		<%= f.label :desc , 'Club Description'%>
+		<%= f.text_field :desc, class: 'form-control'%>
 
-			<div class="form-group">
-				<label>Club Meeting Location</label>
-				<input type="text" class="form-control" placeholder="Enter Location">
-				<label>Club Meeting Date</label>
-				<input type="text" class="form-control" placeholder="Enter Date">
-			</div>
+		<%= f.label :meetTime, 'Meeting Time' %>
+		<%= f.text_field :meetTime, class: 'form-control'%>
 
-			<br><br>
+		<%= f.label :meetLoc, 'Meeting Location' %>
+		<%= f.text_field :meetLoc, class: 'form-control'%>
 
-			<div class="form-group">
-				<p>Executive Board Roster</p>
-				<label>President</label>
-				<input type="text" class="form-control" placeholder="Enter President">
-				<label>Vice President</label>
-				<input type="text" class="form-control" placeholder="Enter Vice President">
-				<label>Treasurer</label>
-				<input type="text" class="form-control" placeholder="Enter Treasurer">
-				<label>Secretary</label>
-				<input type="text" class="form-control" placeholder="Enter Secretary">
-			</div>
-
-			<button class="btn btn-default" type="submit">Add Club Information</button>
-
-		</form>
-	</div>
+		<%= f.submit "Create Club", class:"btn btn-primary" %>
+	<% end %>
+  </div>
 </div>
+
