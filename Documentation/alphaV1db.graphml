@@ -43,20 +43,16 @@
     <node id="n1">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="173.0" width="219.0" x="455.5" y="81.0"/>
+          <y:Geometry height="125.0" width="148.0" x="491.0" y="117.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="30.935546875" x="94.0322265625" y="4.0">Club</y:NodeLabel>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="139.0" modelName="custom" textColor="#000000" visible="true" width="108.0" x="2.0" y="29.96875">&lt;html&gt;
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="30.935546875" x="58.5322265625" y="4.0">Club</y:NodeLabel>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="79.0" modelName="custom" textColor="#000000" visible="true" width="108.0" x="2.0" y="29.96875">&lt;html&gt;
 &lt;p&gt;&lt;b&gt;&lt;u&gt;club_id&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;club_name&lt;/b&gt;&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;club_desc&lt;/b&gt;&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;club_meetTime&lt;/b&gt;&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;club_meetLoc&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;club_pres&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;club_vicePres&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;club_secretary&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;club_treasurer&lt;/b&gt;&lt;/p&gt;
 &lt;/html&gt;<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
             </y:LabelModel>
@@ -226,7 +222,6 @@
       </data>
     </edge>
     <edge id="e6" source="n5" target="n2">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -237,7 +232,6 @@
       </data>
     </edge>
     <edge id="e7" source="n4" target="n5">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
