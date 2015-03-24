@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
-  get 'clubView' =>'club#view'
+  get 'clubView' =>'clubs#view'
 
-  get 'clubEdit' =>'club#edit'
+  get 'clubEdit' =>'clubs#edit'
 
-  get 'clubAdd' =>'club#add'
+  get 'clubAdd' =>'clubs#new'
 
   get 'signup' =>'users#new'
 

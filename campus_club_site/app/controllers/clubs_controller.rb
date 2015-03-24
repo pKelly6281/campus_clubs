@@ -1,11 +1,11 @@
-class ClubController < ApplicationController
+class ClubsController < ApplicationController
   def view
   end
 
   def edit
   end
 
-  def add
+  def new
   	if logged_in?
       @club = Club.new
   	else
