@@ -11,7 +11,11 @@ Campus Clubs
 				<td> <%= link_to "Computer Society", clubView_path%></td>
 			</tr>
 		</table>
-		<p><%= link_to "Add Club", clubAdd_path%></p>
+
+		<% if logged_in? %>
+        	<p><%= link_to "Add Club", clubAdd_path%></p>
+        <% end %>
+		
 	</div>
 	<div class="col-md-6">
 		<table class= "table table-hover table-condensed">

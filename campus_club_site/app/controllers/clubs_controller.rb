@@ -1,5 +1,7 @@
 class ClubsController < ApplicationController
   def view
+    #shows the clubs individual page
+    @club = Club.find(params[:id])
   end
 
   def edit

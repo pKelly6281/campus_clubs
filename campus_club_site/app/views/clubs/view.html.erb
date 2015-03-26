@@ -1,7 +1,9 @@
+<% provide(:title, @club.name) %>
 
 <div class="row">
-	<h1>Computer Society</h1>
+	<h1><%= @club.name %></h1>
 </div>
+<!-- User Club ToolBar -->
 <div class="row">
 	<div class="col-sm-2 text-left">
 		
@@ -17,6 +19,7 @@
 	</div>
 
 	<!-- TODO Figure out how to do favorite functionality with AJAX-->
+
 	<div class="col-sm-2 text-right">
 		
 		<p class = "btn btn-default">
@@ -28,38 +31,35 @@
 
 </div>
 
-<div class="row" >
 
+<!-- Club Information -->
 
-	<div class="col-md-4 div-border"> Meetings and Events
+<div class="row">
+	<div class="col-sm-3">
 		<table class="table table-condensed">
 			<tr>
-				<th>Location</th>
+				<th>Meeting Time and Location</th>
+			</tr>
+			<tr>
+				<td><%=@club.meetTime %> @ <%=@club.meetLoc %></td>
+			</tr>
+		</table>
+
+	</div>
+
+	<div class="col-sm-6">
+		<table class="table condensed">
+			<tr>
 				<th>Description</th>
 			</tr>
 			<tr>
-				<td>Murdock 120</td>
-				<td>Computer Society General Meeting</td>
+				<td><%= @club.desc %></td>
 			</tr>
-		</table>
-	</div>
-
-	<div class="col-md-4">Description
-		<table class="table condensed">
-			<tr>
-				<th>Bio</th>
-			</tr>
-			<tr>
-				<td>We love computers</td>
-			</tr>
-
-
 		</table>
 
 	</div>
 
-
-	<div class="col-md-4">Eboard
+	<div class="col-sm-3">
 		<table class="table table-condensed" > 
 			<tr> 
 				<th>Member Name</th>
@@ -71,6 +71,6 @@
 				<td>President</td>
 			</tr>
 		</table>
-	</div>
 
+	</div>
 </div>

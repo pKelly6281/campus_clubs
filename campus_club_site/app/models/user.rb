@@ -1,11 +1,10 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
-  	before_save { self.email = email.downcase }#runs before we execute code before
+  before_save { self.email = email.downcase }#runs before we execute code before
 
 	#first name and last name validation 
 	validates :firstname, presence: true, length: { maximum: 30}
 	validates :lastname, presence: true, length: { maximum: 30}
-
 
 
 	#email validation 
@@ -15,7 +14,6 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
 
 
-    
     has_secure_password
 	validates :password, length: { minimum: 6 } 	#should be password not password_confirmation 
 
@@ -34,4 +32,5 @@ class User < ActiveRecord::Base
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
   end
+  
 end
