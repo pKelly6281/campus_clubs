@@ -15,10 +15,15 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  get 'viewSelected' => 'home#view'
+
+
+  get 'viewSelected' => 'home#view'#this represents the users Yourclubs.html.erb and not home-view
+  get 'yourClubs' => 'users#yourclubs'
+  
   get 'requests' => 'home#requests'
   get  'about' =>'home#about'
   root 'home#home'
+
 
   resources :users
   resources :clubs

@@ -1,2 +1,56 @@
-<h1>Users#yourclubs</h1>
-<p>Find me in app/views/users/yourclubs.html.erb</p>
+<% provide(:title, 'Your Campus Clubs')%>
+<!-- Enrolled Clubs Below-->
+
+<h1 class="text-center">
+	<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+	Your Campus Clubs
+	<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+</h1>
+
+
+				
+				<%= will_paginate %>
+					<%= render @users%>
+				<%= will_paginate %>
+
+
+
+<!-- Favorites Below -->
+<div class="row">
+<div class="col-md-3 col-md-offset-5">
+<h1 class="text-center">
+	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	Favorites
+	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+</h1>
+
+	<table class= "table table-hover table-condensed">
+			<tr>
+				<th>Your Club Name</th>
+				<th>Meeting Times</th>
+			</tr>
+			<tr>
+				<td> <%= link_to "Vegan Society", clubView_path%></td>
+				<td> Meet Wednesdays in Wild Oats at 4pm</td>
+			</tr>
+
+			<tr>
+				<td> <%= link_to "Devil Worship CLub", clubView_path%></td>
+				<td> Sundays in Science Center at noon </td>
+			</tr>
+			
+			<tr>
+				<td> <%= link_to "Ted Talks CLub", clubView_path%></td>
+				<td> Mondays in Library Basement at 1pm</td>
+			</tr>
+
+			<tr>
+				<td> <%= link_to "Pokemon Club", clubView_path%></td>
+				<td>Skype Meetings Everyday at 10pm</td>
+			</tr>
+	</table>
+</div>
+</div>
+<p class = "btn btn-default">
+	<%= link_to "Add Club", clubAdd_path%>
+</p>

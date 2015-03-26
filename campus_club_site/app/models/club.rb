@@ -1,6 +1,6 @@
 class Club < ActiveRecord::Base
 	#before saving conditions?
-	#before_save {self.name = name.downcase}
+	#sbefore_save {self.name = name.downcase}
 
 	#validate club variables 
 	validates :name, presence: true, length: { maximum: 50}
