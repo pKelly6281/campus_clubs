@@ -19,7 +19,7 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
     if @club.save
-      render 'view'
+      render 'show'
     else
       render 'add'#show error validation 
     end   

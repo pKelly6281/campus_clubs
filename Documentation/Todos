@@ -18,16 +18,22 @@ TimeLine
 	NOTE:User password_digest needs to be reviewed. 
 	a) Sign up:::DONE
 	b) requestView 
-	c) Your Clubs
+	c) Your Clubs::
+		--Need to create an association between clubs and users
+
 2) Seesion Controller
 	a) Log in:::DONE
 	b) log out::::DONE 
-3) Clubs Controller
-	a) addClub
-	b) editClub
+3) Clubs Controller 
+	a) addClub:::DONE
+	b) editClub:::DONE
 	c) favoriteClub
 	d) request add
 		1) have optional dropdown which shows previous entered positions.
+
+4) Eboard Controller -- needs to be created 
+	a) 
+
 		
 **Ask Mark about the club delete functionality for every year**
 Extra Functionality
@@ -41,3 +47,7 @@ Extra Functionality
 		1) send out requests to each president require 2/3 majority
 		2) timed requests if not answered default 
 3)	
+
+
+EXTRA ISSUE 3/31/15
+Revisit the fact that the @users variable in the users/yourclubs.html.erb. It shows club objects within the @users variable
