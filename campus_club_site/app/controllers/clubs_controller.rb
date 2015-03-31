@@ -1,10 +1,11 @@
 class ClubsController < ApplicationController
-  def view
+  def show
     #shows the clubs individual page
     @club = Club.find(params[:id])
   end
 
   def edit
+    @club = Club.find(params[:id])
   end
 
   def new
@@ -23,7 +24,15 @@ class ClubsController < ApplicationController
       render 'add'#show error validation 
     end   
   end 
-  
+  def update
+    @club = Club.find(params[:id])
+    if @club.update_attributes(club_params)
+      flash[:success] = "Club updated"
+      redirect_to @club
+    else
+      render 'edit'
+    end
+  end
   private
   def club_params
       params.require(:club).permit(:name,:desc, :meetTime, :meetLoc)

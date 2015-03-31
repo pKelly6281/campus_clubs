@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
-  get 'clubView' =>'clubs#view'
+  get 'clubView' =>'clubs#show'
 
   get 'clubEdit' =>'clubs#edit'
 
