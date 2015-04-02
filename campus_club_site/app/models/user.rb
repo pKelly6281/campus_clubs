@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  #db association 
+
   attr_accessor :remember_token
   before_save { self.email = email.downcase }#runs before we execute code before
 

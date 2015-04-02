@@ -24,6 +24,7 @@ class ClubsController < ApplicationController
       render 'add'#show error validation 
     end   
   end 
+
   def update
     @club = Club.find(params[:id])
     if @club.update_attributes(club_params)
@@ -33,6 +34,7 @@ class ClubsController < ApplicationController
       render 'edit'
     end
   end
+  
   private
   def club_params
       params.require(:club).permit(:name,:desc, :meetTime, :meetLoc)
