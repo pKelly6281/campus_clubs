@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   #db association 
-
+  has_and_belongs_to_many :clubs
   attr_accessor :remember_token
   before_save { self.email = email.downcase }#runs before we execute code before
 

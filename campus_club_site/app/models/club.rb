@@ -1,7 +1,7 @@
 class Club < ActiveRecord::Base
 	#before saving conditions?
 	#sbefore_save {self.name = name.downcase}
-
+	has_and_belongs_to_many :users
 	#validate club variables 
 	validates :name, presence: true, length: { maximum: 50}
 	validates :desc, presence: true, length: { maximum: 150}
