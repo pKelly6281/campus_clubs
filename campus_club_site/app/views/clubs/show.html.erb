@@ -21,9 +21,7 @@
 	<!-- TODO Figure out how to do favorite functionality with AJAX-->
 
 	<div class="col-sm-2 text-right">
-		<%
-		if(@user.clubs.exists?(@club.id))
-		%>
+		
 		<p class = "btn btn-default">
 			<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 			<%=link_to "UNFavorite", unfavorite_path(:id => @club.id)%>

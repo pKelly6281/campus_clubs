@@ -24,7 +24,7 @@ TimeLine
 	NOTE:User password_digest needs to be reviewed. 
 	a) Sign up:::DONE
 	b) requestView 
-	c) Your Clubs::
+	c) Your Clubs::DONE
 		--Need to create an association between clubs and users
 
 2) Seesion Controller
