@@ -20,24 +20,10 @@
 
 	<!-- TODO Figure out how to do favorite functionality with AJAX-->
 
-	<div class="col-sm-2 text-right">
-		<%
-		if(@user.clubs.exists?(@club.id))
-		%>
-		<p class = "btn btn-default">
-			<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-			<%=link_to "UNFavorite", unfavorite_path(:id => @club.id)%>
-		</p>
-		<% 
-		else
-		%>
-		<p class = "btn btn-default">
-			<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-			<%=link_to "Favorite", favorite_path%>
-		</p>
-		<%
-		end
-		%>
+	<div class="col-sm-2 text-right" id="favorite">
+		<button id='favorite' class = "btn btn-default">
+			<span  id= 'favorite-span'class="glyphicon glyphicon-star-empty" aria-hidden="true">Favorite</span>
+		</button>
 	</div>
 
 </div>
@@ -84,14 +70,56 @@
 		</table>
 
 	</div>
-	<p><%=@user.id%></p>
 </div>
 <script type="text/javascript">
-	$.get("http://localhost:3000/people", function(response){
+	isFavorite();
+	$("#favorite").click(function(){
+		toggleFavorite();
+	});
+	function toggleFavorite(){
+		var base_url = "http://localhost:3000/isFavorite?id=";
+		var id = <%== j @club.id.to_s%>;
+		$.get(base_url.concat(id), function(response){
+		if(isFavorite()){
+			base_url = "http://localhost:3000/favorite?id=";
+			$.get(base_url.concat(id), function(response)){
+				isFavorite();
+			}
+		}
+		else{
+				base_url = "http://localhost:3000/unfavorite?id=";
+				$.get(base_url.concat(id), function(response)){
+					isFavorite();
+			}
+		}
+		});
+	}
+	function isFavorite(){
+		var base_url = "http://localhost:3000/isFavorite?id=";
+		var id = <%== j @club.id.to_s%>
+		$.get(base_url.concat(id), function(response){
+		if(response=='!favorite')
+		{
+			
+			$('#favorite-span').addClass("glyphicon-star").removeClass("glyphicon-star-empty");
+			return false;
+
+		}
+		else{
+			$('#favorite-span').addClass("glyphicon-star-empty").removeClass("glyphicon-star");
+			return true;
+		}
+		});
+	}
+	function people(){
+		var base_url = "http://localhost:3000/favorite?id=";
+		var id = <%== j @club.id.to_s%>
+		$.get(base_url.concat(id), function(response){
 		if(response==null)
 			console.log("No response");
 		else
-			console.log(response)
+			console.log(response);
 	});
-	console.log("in here")
+	}
+	
 </script>

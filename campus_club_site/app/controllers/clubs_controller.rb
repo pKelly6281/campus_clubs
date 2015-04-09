@@ -16,15 +16,11 @@ class ClubsController < ApplicationController
   		redirect_to root_url
   	end
   end
-  def people
-    render :json => ['people'];
-  end
-  def favorite
-   / @club = Club.find(params[:id])
+  def isFavorite
+    @club = Club.find(params[:id])
     @user = current_user
-    @club.users.push(@user.id);
-    /
-    render :json => ['favorite']
+    @isFavorite = @club.users.exists?(@user.id)
+    render :json => [@isFavorite];
   end
   def unfavorite
     @club = Club.find(params[:id])
@@ -36,7 +32,7 @@ class ClubsController < ApplicationController
     if @club.save
       render 'show'
     else
-      render 'add'#show error validation 
+      render 'show'#show error validation 
     end   
   end 
 
