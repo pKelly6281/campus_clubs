@@ -1,7 +1,23 @@
 <h1>Add Eboard</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">  
-	
+	<%= form_for (@eboard) do |f| %>
+		<%= render 'shared/error_messages_eboard'%>
+
+		<%= f.label :president,'President Name' %>
+		<%= f.text_field :president, class: 'form-control' %>
+
+		<%= f.label :vice_president , 'Vice President Name'%>
+		<%= f.text_field :vice_president, class: 'form-control'%>
+
+		<%= f.label :secretary, 'Secretary Name' %>
+		<%= f.text_field :secretary, class: 'form-control'%>
+
+		<%= f.label :treasurer, 'Treasurer Name' %>
+		<%= f.text_field :treasurer, class: 'form-control'%>
+
+		<%= f.submit "Create Eboard", class:"btn btn-primary" %>
+	<% end %>
 
 	
 	
