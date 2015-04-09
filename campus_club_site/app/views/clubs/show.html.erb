@@ -26,16 +26,12 @@
 			<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 			<%=link_to "UNFavorite", unfavorite_path(:id => @club.id)%>
 		</p>
-		<% 
-		else
-		%>
+	
 		<p class = "btn btn-default">
 			<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
 			<%=link_to "Favorite", favorite_path%>
 		</p>
-		<%
-		end
-		%>
+	
 	</div>
 
 </div>

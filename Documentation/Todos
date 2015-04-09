@@ -36,6 +36,7 @@ TimeLine
 	c) favoriteClub
 	d) request add
 		1) have optional dropdown which shows previous entered positions.
+		2)CLUB validation needed on the webpage
 
 4) Eboard Controller -- needs to be created 
 	a) 

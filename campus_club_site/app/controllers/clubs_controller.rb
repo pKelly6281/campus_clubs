@@ -36,7 +36,7 @@ class ClubsController < ApplicationController
     if @club.save
       render 'show'
     else
-      render 'add'#show error validation 
+      render 'new'#show error validation 
     end   
   end 
 
