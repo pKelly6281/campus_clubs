@@ -54,6 +54,7 @@ Extra Functionality
 		2) timed requests if not answered default 
 3)	
 
+.exists?(id) can be called on a collection and will return false if id does not exist in the collection
 
 EXTRA ISSUE 3/31/15
 Revisit the fact that the @users variable in the users/yourclubs.html.erb. It shows club objects within the @users variable

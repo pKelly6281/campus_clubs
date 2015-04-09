@@ -2,6 +2,7 @@ class ClubsController < ApplicationController
   def show
     #shows the clubs individual page
     @club = Club.find(params[:id])
+    @user = current_user
   end
 
   def edit
@@ -15,7 +16,21 @@ class ClubsController < ApplicationController
   		redirect_to root_url
   	end
   end
-
+  def people
+    render :json => ['people'];
+  end
+  def favorite
+   / @club = Club.find(params[:id])
+    @user = current_user
+    @club.users.push(@user.id);
+    /
+    render :json => ['favorite']
+  end
+  def unfavorite
+    @club = Club.find(params[:id])
+    @user = current_user
+    @club.users.destroy(@user.id)
+  end
   def create
     @club = Club.new(club_params)
     if @club.save

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'clubAdd' =>'clubs#new'
 
   get 'signup' =>'users#new'
-
+  get 'people' => 'clubs#people'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
@@ -19,7 +19,8 @@ Rails.application.routes.draw do
 
   get 'viewSelected' => 'home#view'#this represents the users Yourclubs.html.erb and not home-view
   get 'yourClubs' => 'users#yourclubs'
-  
+  get 'favorite' => 'clubs#favorite'
+  get 'unfavorite' => 'clubs#unfavorite'
   get 'requests' => 'home#requests'
   get  'about' =>'home#about'
   root 'home#home'
