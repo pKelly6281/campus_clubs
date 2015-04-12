@@ -1,0 +1,89 @@
+<h1>Club Name Executive Board List</h1>
+<p>Find me in app/views/eboard/view.html.erb</p>
+
+
+<div class="row">
+
+	<div class="col-md-3">
+
+		<div class="col-md-3"></div>
+
+		<div class="col-md-9 jumbotron div-center">
+			<p><b>Executive Member Tools</b></p>
+			<a class="btn btn-primary btn-sm btn-block" role="button" >
+				<%= link_to "Edit Current Eboard",  eboardEdit_path %>
+			</a>
+
+			<a class="btn btn-primary btn-sm btn-block" role="button" >Eboard Tool Button </a>
+
+			
+		</div>
+
+
+	</div>
+
+	<div class="col-md-6 jumbotron">
+		<table class="table table-hover table-condensed">
+			<tr>
+				<th>Position</th>
+				<th>Person Name</th>
+				<th>Requests</th>
+				<th>Request Status</th>
+			</tr>
+			<tr>
+				<td>President</td>
+				<td><%=@eboard.president%></td>
+				<td>
+					<span class="label label-primary">Request Sent</span>
+				</td>
+
+				<td>
+					<span class="label label-danger">Awaiting Approval</span>
+				</td>
+			</tr>
+
+
+			<tr>
+				<td>Vice-President</td>
+				<td><%=@eboard.vice_president%></td>
+				<td>
+					<span class="label label-primary">Request Sent</span>
+				</td>
+
+				<td>
+					<span class="label label-danger">Awaiting Approval</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Secretary</td>
+				<td><%=@eboard.secretary%></td>
+				<td>
+					<span class="label label-primary">Request Sent</span>
+				</td>
+
+				<td>
+					<span class="label label-danger">Awaiting Approval</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Treasurer</td>
+				<td><%=@eboard.treasurer%></td>
+				<td>
+					<span class="label label-primary">Request Sent</span>
+				</td>
+
+				<td>
+					<span class="label label-danger">Awaiting Approval</span>
+				</td>
+			</tr>
+
+		</table>
+	</div>
+
+	<div class="col-md-3">
+
+	</div>
+
+</div>

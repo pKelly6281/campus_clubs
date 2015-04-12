@@ -1,4 +1,10 @@
-class EboardController < ApplicationController
+class EboardsController < ApplicationController
+  def show
+    #shows the clubs individual page
+    @eboard = Eboard.find(params[:id])
+    @user = current_user
+  end
+
   def new
     if logged_in?
       @eboard = Eboard.new
@@ -10,15 +16,13 @@ class EboardController < ApplicationController
   def create
     @eboard = Eboard.new(eboard_params)
     if @eboard.save
-      #render 'show'
+      render 'show'
     else
       #render 'new'#show error validation 
     end   
   end
 
-  def show
-  end
-
+ 
   def edit
   end
 
@@ -31,3 +35,4 @@ class EboardController < ApplicationController
   end
 
 end
+

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
 
-  get 'eboardEdit' => 'eboard#edit'
-  get 'eboardView' => 'eboard#show'
-  get 'eboardAdd' => 'eboard#new'
+  get 'eboardEdit' => 'eboards#edit'
+  get 'eboardView' => 'eboards#show'
+  get 'eboardAdd' => 'eboards#new'
 
 
 
