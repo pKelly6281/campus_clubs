@@ -39,8 +39,11 @@ TimeLine
 		2)CLUB validation needed on the webpage
 
 4) Eboard Controller -- needs to be created 
-	a) Create controller
-	b) Create model
+	a) Create controller --done
+	b) Create model -- done 
+	c) MODEL VALIDATION
+	d) DESIGN SHOW,EDIT,NEW pages
+	e) RELATIONSHIP TO USER AND CLUB
 
 		
 **Ask Mark about the club delete functionality for every year**
