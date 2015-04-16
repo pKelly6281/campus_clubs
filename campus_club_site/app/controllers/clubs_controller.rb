@@ -20,12 +20,25 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     @user = current_user
     @isFavorite = @club.users.exists?(@user.id)
-    render :json => [@isFavorite];
+    render :json => [@isFavorite]
   end
   def unfavorite
     @club = Club.find(params[:id])
     @user = current_user
-    @club.users.destroy(@user.id)
+    if(@club.users.destroy(@user.id))
+      render :json => ["destoryed"]
+    else
+      render :json => ["not desetroyed"]
+    end
+  end
+  def favorite
+    @club = Club.find(params[:id])
+    @user = current_user
+    if(@club.users.push(@user))
+      render :json => ["pushed"]
+    else
+      render :json => ["not pushed"]
+    end
   end
   def create
     @club = Club.new(club_params)

@@ -80,54 +80,47 @@
 	</div>
 </div>
 <script type="text/javascript">
-	isFavorite();
+	var favorite=false;
+	$(document).ready(function(){
+		isFavorite()
+	});
 	$("#favorite").click(function(){
 		toggleFavorite();
 	});
 	function toggleFavorite(){
 		var base_url = "http://localhost:3000/isFavorite?id=";
 		var id = <%== j @club.id.to_s%>;
-		$.get(base_url.concat(id), function(response){
-		if(isFavorite()){
-			base_url = "http://localhost:3000/favorite?id=";
-			$.get(base_url.concat(id), function(response)){
-				isFavorite();
-			}
+		if(favorite){
+				base_url = "http://localhost:3000/unfavorite?id=";
+				$.get(base_url.concat(id), function(response){
+			});
 		}
 		else{
-				base_url = "http://localhost:3000/unfavorite?id=";
-				$.get(base_url.concat(id), function(response)){
-					isFavorite();
-			}
+			base_url = "http://localhost:3000/favorite?id=";
+			$.get(base_url.concat(id), function(response){
+					console.log(response);
+			});
 		}
-		});
+		isFavorite();
 	}
 	function isFavorite(){
 		var base_url = "http://localhost:3000/isFavorite?id=";
 		var id = <%== j @club.id.to_s%>
 		$.get(base_url.concat(id), function(response){
-		if(response=='!favorite')
+		if(response[0])
 		{
 			
 			$('#favorite-span').addClass("glyphicon-star").removeClass("glyphicon-star-empty");
-			return false;
+			favorite = true;
 
 		}
 		else{
 			$('#favorite-span').addClass("glyphicon-star-empty").removeClass("glyphicon-star");
-			return true;
+
+			favorite =false;
+			
 		}
 		});
-	}
-	function people(){
-		var base_url = "http://localhost:3000/favorite?id=";
-		var id = <%== j @club.id.to_s%>
-		$.get(base_url.concat(id), function(response){
-		if(response==null)
-			console.log("No response");
-		else
-			console.log(response);
-	});
 	}
 	
 </script>

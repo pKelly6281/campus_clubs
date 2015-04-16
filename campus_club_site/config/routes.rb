@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'isFavorite' => 'clubs#isFavorite'
   get 'favorite' => 'clubs#favorite'
   get 'unfavorite' => 'clubs#unfavorite'
+
+  
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'

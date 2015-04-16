@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :eboards
-  has_many :clubs through: :eboards
+  has_many :clubs, through: :eboards
   #db association 
   has_and_belongs_to_many :clubs
   attr_accessor :remember_token

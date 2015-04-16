@@ -1,6 +1,6 @@
 class Club < ActiveRecord::Base
 	has_many :eboards
-	has_many :users through: :eboards
+	has_many :users, through: :eboards
 
 	#before saving conditions?
 	#sbefore_save {self.name = name.downcase}
