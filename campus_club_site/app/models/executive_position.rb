@@ -1,3 +1,3 @@
 class ExecutivePosition < ActiveRecord::Base
-	has_many :ebards
+	has_many :eboards
 end

@@ -15,13 +15,23 @@
 
 				<div class="row">
 
+<<<<<<< HEAD
 					<div class="col-md-12">
 						<a class="btn btn-primary btn-sm btn-block" href="clubAdd" role="button" >Add Club</a>
 
+=======
+					<div class="col-md-6">
+						<%= link_to "Add Club", clubAdd_path, class: "btn btn-primary btn-sm btn-block"%>
+>>>>>>> 603e52109707fc35e85cfee207b9615f1b8b6c2a
 
 					</div>
 
 				</div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 603e52109707fc35e85cfee207b9615f1b8b6c2a
 		</div>
 
 	</div>
@@ -59,9 +69,15 @@
 						<th>Your Club Name</th>
 						<th>Meeting Times</th>
 					</tr>
+<<<<<<< HEAD
 					
 					<%= render @userClubs%>
 				</table>
+=======
+					<%= render @userClubs %>
+				</table>
+				<%= will_paginate %>
+>>>>>>> 603e52109707fc35e85cfee207b9615f1b8b6c2a
 
 			</table>
 				
@@ -93,6 +109,7 @@
 	<div class="col-md-1 "></div><!-- This is temporary spacing on the side for formattting-->
 
 </div>
+<<<<<<< HEAD
 
 
 
@@ -104,3 +121,44 @@
 
 
 
+=======
+<script type="text/javascript">
+$("#favorite").click(function(){
+		toggleFavorite($(this).attr('title'));
+	});
+function toggleFavorite(passedID){
+		var base_url = "http://localhost:3000/isFavorite?id=";
+		var id = passedID;
+		if(favorite){
+				base_url = "http://localhost:3000/unfavorite?id=";
+				$.get(base_url.concat(id), function(response){
+			});
+		}
+		else{
+			base_url = "http://localhost:3000/favorite?id=";
+			$.get(base_url.concat(id), function(response){
+					console.log(response);
+			});
+		}
+		isFavorite(passedID);
+	}
+	function isFavorite(passedID){
+		var base_url = "http://localhost:3000/isFavorite?id=";
+		var id = passedID;
+		$.get(base_url.concat(id), function(response){
+		if(response[0])
+		{
+			
+			$('#favorite-span').addClass("glyphicon-star").removeClass("glyphicon-star-empty");
+			favorite = true;
+
+		}
+		else{
+			$('#favorite-span').addClass("glyphicon-star-empty").removeClass("glyphicon-star");
+
+			favorite =false;
+			
+		}
+		});
+	}</script>
+>>>>>>> 603e52109707fc35e85cfee207b9615f1b8b6c2a

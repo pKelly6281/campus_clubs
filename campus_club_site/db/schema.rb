@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414155039) do
+ActiveRecord::Schema.define(version: 20150421120403) do
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -31,9 +31,16 @@ ActiveRecord::Schema.define(version: 20150414155039) do
   add_index "clubs_users", ["user_id"], name: "index_clubs_users_on_user_id"
 
   create_table "eboards", force: true do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "user_id"
+    t.integer  "club_id"
+    t.integer  "executivepostion_id"
   end
+
+  add_index "eboards", ["club_id"], name: "index_eboards_on_club_id"
+  add_index "eboards", ["executivepostion_id"], name: "index_eboards_on_executivepostion_id"
+  add_index "eboards", ["user_id"], name: "index_eboards_on_user_id"
 
   create_table "executive_positions", force: true do |t|
     t.string "position"
