@@ -1,4 +1,4 @@
-class Eboard < ActiveRecord::Base
+ class Eboard < ActiveRecord::Base
 	
 	belongs_to :clubs
 	belongs_to :users

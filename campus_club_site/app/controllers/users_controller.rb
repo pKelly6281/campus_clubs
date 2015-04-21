@@ -23,8 +23,8 @@ class UsersController < ApplicationController
 
   def yourclubs
     @users = Club.paginate(page: params[:page], :per_page => 10) #@users contains the Club db data
+    @userClubs = current_user.clubs
   end
-
   private
     def user_params
       params.require(:user).permit(:firstname,:lastname, :email, :password, :password_confirmation)
