@@ -21,8 +21,10 @@ class UsersController < ApplicationController
   def requests
   end
 
+
   def yourclubs
     @users = Club.paginate(page: params[:page], :per_page => 10) #@users contains the Club db data
+    @userClubs = current_user.clubs
   end
 
   private

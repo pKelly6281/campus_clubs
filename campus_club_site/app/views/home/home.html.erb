@@ -6,37 +6,29 @@ Campus Clubs
 
 	</div>
 
-	<div class="col-md-3  ">
-		<table class= "table table-hover table-condensed">
-			<tr>
-				<th> Club Name</th>
-			</tr>
-			<tr>
-				<td> <%= link_to "Computer Society", clubView_path%></td>
-			</tr>
-		</table>
-
-		<% if logged_in? %>
-        	<p><%= link_to "Add Club", clubAdd_path%></p>
-        <% end %>
-		
-	</div>
-	<div class="col-md-3">
-		<table class= "table table-hover table-condensed">
+	<div class="col-md-6">
+			<h2 class="text-center">
+				<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+					Your Campus Clubs
+				<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+			</h2>
+			<table class= "table table-hover table-condensed">
 				<tr>
-					<th>Club Name</th>
+					<th>Your Club Name</th>
 					<th>Meeting Times</th>
 				</tr>
-				<tr>
-					<td> <%= link_to "Computer Society", clubView_path%></td>
-					<td> Friday 13th in Murdock 120</td>
-				</tr>
-		</table>
+
+				<%= render @users%>
+			
+			</table>
+			
+
 	</div>
 
 	<div class="col-md-3">
 
 	</div>
+
 
 	
 	<!-- Button trigger modal -->
