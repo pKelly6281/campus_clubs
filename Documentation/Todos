@@ -46,7 +46,15 @@ TimeLine
 	e) RELATIONSHIP TO USER AND CLUB
 	f) REMOVE REQUEST FUNCTION: ADD drop down function of all users 
 
-		
+Things to do: 
+
+add the ability to not edit clubs or eboards if not logged in 
+redirect the user to the right place if not logged in or when they create an account 
+
+
+
+
+
 **Ask Mark about the club delete functionality for every year**
 Extra Functionality
 1) Events Controller

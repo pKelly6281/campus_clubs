@@ -1,23 +1,31 @@
 <h1>Add Club</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">  
-	<%= form_for (@club) do |f| %>
-		<%= render 'shared/error_messages_club'%>
+<% if logged_in? %>
 
-		<%= f.label :name,'Club Name' %>
-		<%= f.text_field :name, class: 'form-control' %>
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-3">  
+		<%= form_for (@club) do |f| %>
+			<%= render 'shared/error_messages_club'%>
 
-		<%= f.label :desc , 'Club Description'%>
-		<%= f.text_field :desc, class: 'form-control'%>
+			<%= f.label :name,'Club Name' %>
+			<%= f.text_field :name, class: 'form-control' %>
 
-		<%= f.label :meetTime, 'Meeting Time' %>
-		<%= f.text_field :meetTime, class: 'form-control'%>
+			<%= f.label :desc , 'Club Description'%>
+			<%= f.text_field :desc, class: 'form-control'%>
 
-		<%= f.label :meetLoc, 'Meeting Location' %>
-		<%= f.text_field :meetLoc, class: 'form-control'%>
+			<%= f.label :meetTime, 'Meeting Time' %>
+			<%= f.text_field :meetTime, class: 'form-control'%>
 
-		<%= f.submit "Create Club", class:"btn btn-primary" %>
-	<% end %>
-  </div>
-</div>
+			<%= f.label :meetLoc, 'Meeting Location' %>
+			<%= f.text_field :meetLoc, class: 'form-control'%>
+
+			<%= f.submit "Create Club", class:"btn btn-primary" %>
+		<% end %>
+	  </div>
+	</div>
+
+<% else %>
+
+<h1>Must be logged in to Add Clubs</h1>	
+
+<% end %>
 

@@ -1,36 +1,28 @@
 <h1>Edit Club</h1>
-<div class="row">
-	<div class="col-md-6 col-md-offset-3"> 
-	  <%= form_for(@club) do |f| %>
-      <%= render 'shared/error_messages_club' %>
+<% if logged_in? %>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3"> 
+			<%= form_for(@club) do |f| %>
+			<%= render 'shared/error_messages_club' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+			<%= f.label :name %>
+			<%= f.text_field :name, class: 'form-control' %>
 
-      <%= f.label :desc %>
-      <%= f.text_field :desc, class: 'form-control' %>
+			<%= f.label :desc %>
+			<%= f.text_field :desc, class: 'form-control' %>
 
-      <%= f.label :meetTime %>
-      <%= f.text_field :meetTime, class: 'form-control' %>
+			<%= f.label :meetTime %>
+			<%= f.text_field :meetTime, class: 'form-control' %>
 
-      <%= f.label :meetLoc%>
-      <%= f.text_field :meetLoc, class: 'form-control' %>
+			<%= f.label :meetLoc%>
+			<%= f.text_field :meetLoc, class: 'form-control' %>
 
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
-    <% end %>
+			<%= f.submit "Save changes", class: "btn btn-primary" %>
+			<% end %>
+		</div>
 
-			<!--<div class="form-group">
-				<p>Executive Board Roster</p>
-				<label>President</label>
-				<input type="text" class="form-control" placeholder="Enter President"value="Steve Rogers">
-				<label>Vice President</label>
-				<input type="text" class="form-control" placeholder="Enter Vice President" value="Anthony Stark">
-				<label>Treasurer</label>
-				<input type="text" class="form-control" placeholder="Enter Treasurer" value="Henry Pym">
-				<label>Secretary</label>
-				<input type="text" class="form-control" placeholder="Enter Secretary" value="Peter Parker">
-			</div>
-		-->
 	</div>
+<% else %>
+	<h1>Must be logged in to edit clubs</h1>	
 
-</div>
+<% end %>

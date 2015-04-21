@@ -2,11 +2,8 @@
 Campus Clubs
 </h1>
 <div class="row ">
-	<div class="col-md-3">
-
-	</div>
-
-	<div class="col-md-6">
+	
+	<div class="col-md-6 col-md-offset-3">
 			<h2 class="text-center">
 				<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
 					Your Campus Clubs
@@ -16,19 +13,20 @@ Campus Clubs
 				<tr>
 					<th>Your Club Name</th>
 					<th>Meeting Times</th>
+						<% if logged_in? %>
+							<th>Favorite Status</th>
+						<% end %>
+
+					
 				</tr>
 
-				<%= render @users%>
-			
+				<%= render @home%>
+
 			</table>
+	</div>
+
+	
 			
-
-	</div>
-
-	<div class="col-md-3">
-
-	</div>
-
 
 	
 	<!-- Button trigger modal -->
@@ -55,3 +53,10 @@ Campus Clubs
 	  </div>
 	</div>
 </div>
+
+<div class="row"> 
+			<div class="col-md-12 col-md-offset-5">
+				<%= will_paginate %>	
+			</div>
+	</div>
+
