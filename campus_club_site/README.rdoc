@@ -1,4 +1,42 @@
 == README
+creating user association to eboard and club
+
+user = User.first
+club = Club.first
+position = ExecPo.first
+eboard = eboard.new()
+
+
+user.eboards(eboard)
+club.eboards(eboard)
+position.eboards(eboard)
+
+//still have to manually link
+eboard.user_id = user.id
+eboard.club_id = club.id
+eboard.exec_po_id = position.id
+
+eboard.save
+
+user.eboard //shows the bridge table
+
+user.exec_pos//shows the users exec position
+
+user.clubs//shows the users clubs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

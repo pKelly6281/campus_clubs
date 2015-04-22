@@ -1,7 +1,5 @@
- class Eboard < ActiveRecord::Base
-	
-	belongs_to :clubs
-	belongs_to :users
-	belongs_to :executive_positions
-
+class Eboard < ActiveRecord::Base
+	belongs_to :user
+	belongs_to :club
+	belongs_to :exec_po
 end
