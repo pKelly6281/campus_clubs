@@ -25,8 +25,9 @@ user.exec_pos//shows the users exec position
 user.clubs//shows the users clubs
 
 
-
-
+eboard.clubs//shows the clubs in that eboard
+eboard.users//shows the users in that eboard
+eboard.exec_po//shows the executive position for that eboard
 
 
 
