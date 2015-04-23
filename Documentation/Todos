@@ -1,3 +1,34 @@
+Bugs
+	Favorite toggle js doesnt work on home/yourClubs
+	Add Eboard member instead of add Exe_po
+New Features
+	Add/Create Eboard
+		allows for the creation of eboards
+			requires
+				dropdown menu for users
+				dropdown menu for exe_po
+				*drop downs should not allow for repeats*
+
+	Edit/Update Eboard
+			requires
+				dropdown menu for users
+				*drop downs should not allow for repeats*
+	ClubEboard
+		shows all the eboard members for a chosen club
+	Club table 
+		requires new column user_id = id from user that added the club
+
+
+
+
+
+
+
+
+
+
+
+
 Mark_Cohen_Checkin_4/2/15
 *Complete favorites implementation
 *Complete Eboard model, controller, views, and association 

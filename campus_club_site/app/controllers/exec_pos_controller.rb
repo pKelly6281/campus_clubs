@@ -21,5 +21,5 @@ class ExecPosController < ApplicationController
 	def update
 		
 	end
-
+	
 end

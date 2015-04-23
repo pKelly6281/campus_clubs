@@ -44,6 +44,10 @@ ActiveRecord::Schema.define(version: 20150422154511) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "executive_positions", force: true do |t|
+    t.string "position"
+  end
+
   create_table "users", force: true do |t|
     t.string   "firstname"
     t.string   "lastname"
@@ -52,5 +56,13 @@ ActiveRecord::Schema.define(version: 20150422154511) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  create_table "users_clubs", id: false, force: true do |t|
+    t.integer "users_id"
+    t.integer "clubs_id"
+  end
+
+  add_index "users_clubs", ["clubs_id"], name: "index_users_clubs_on_clubs_id"
+  add_index "users_clubs", ["users_id"], name: "index_users_clubs_on_users_id"
 
 end
