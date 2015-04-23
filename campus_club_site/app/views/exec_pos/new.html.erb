@@ -11,10 +11,21 @@
 
 			<%= f.label :position,'Position Name' %>
 			<%= f.text_field :position, class: 'form-control' %>
+			
+			<%= f.label :User,'Select the User' %>
+
+			<select name="user_id">
+				<%= @users.each do |user| %>
+				<option value="<%= user.id %>"><%= user.firstname %>  <%= user.lastname %></option>
+				<% end %>
+			</select>
 
 			<%= f.submit "Create Executive Position", class:"btn btn-primary" %>
 		<% end %>
-		
+
+			
+
+	
 	  </div>
 	</div>
 
