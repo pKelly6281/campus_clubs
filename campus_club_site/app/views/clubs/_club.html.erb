@@ -7,13 +7,13 @@
 	<% if logged_in? %>
 
 		<td>
-				<button id='favorite' class = "btn btn-small">
+				<button class='favorite' class = "btn btn-small">
 					<% if(club.users.exists?(current_user.id)) %>
-					<span  title= "<%= club.id %>"id= 'favorite-span'class="glyphicon glyphicon-star" aria-hidden="true">Favorite</span>
+					<span  title= "<%= club.id %>" class="glyphicon glyphicon-star favorite-span" aria-hidden="true">Favorite</span>
 					<% 
 				else
 					%>
-					<span  title= "<%= club.id %>"id= 'favorite-span'class="glyphicon glyphicon-star-empty" aria-hidden="true">Favorite</span>
+					<span  title= "<%= club.id %>"class="glyphicon glyphicon-star-empty favorite-span" aria-hidden="true">Favorite</span>
 					<%
 				end
 				%>

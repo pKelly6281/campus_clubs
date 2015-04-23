@@ -79,7 +79,7 @@
 	}
 	function isFavorite(){
 		var base_url = "http://localhost:3000/isFavorite?id=";
-		var id = <%== j @club.id.to_s%>
+		var id = <%== j @club.id.to_s%>;
 		$.get(base_url.concat(id), function(response){
 		if(response[0])
 		{

@@ -37,3 +37,45 @@ Campus Clubs
 			</div>
 	</div>
 
+<script type="text/javascript">
+$(".favorite").click(function(){
+		toggleFavorite($(this).children("span").attr('title'));
+	});
+function toggleFavorite(passedID){
+		var base_url = "http://localhost:3000/isFavorite?id=";
+		var id = passedID;
+		$.get(base_url.concat(id), function(response){
+			if(response[0]){
+				base_url = "http://localhost:3000/unfavorite?id=";
+				$.get(base_url.concat(id), function(response){
+			});
+			
+			$('.favorite-span[title ="'+id+'"]').addClass("glyphicon-star-empty").removeClass("glyphicon-star");
+		}
+		else{
+			base_url = "http://localhost:3000/favorite?id=";
+			$.get(base_url.concat(id), function(response){
+			});
+			$('.favorite-span[title ="'+id+'"]').addClass("glyphicon-star").removeClass("glyphicon-star-empty");
+		}
+		});
+		//isFavorite(passedID);
+	}
+	function isFavorite(passedID){
+		var base_url = "http://localhost:3000/isFavorite?id=";
+		var id = passedID;
+		$.get(base_url.concat(id), function(response){
+		if(response[0])
+		{
+			
+			$('.favorite-span[title ="'+passedID+'"]').addClass("glyphicon-star").removeClass("glyphicon-star-empty");
+			
+			console.log("isFavorite: Yes");
+
+		}
+		else{
+			$('#favorite-span[title ='+passedID+']').addClass("glyphicon-star-empty").removeClass("glyphicon-star");
+			console.log("isFavorite: No");
+		}
+		});
+	}</script>

@@ -106,24 +106,28 @@
 
 
 <script type="text/javascript">
-$("#favorite").click(function(){
-		toggleFavorite($(this).attr('title'));
+$(".favorite").click(function(){
+		toggleFavorite($(this).children("span").attr('title'));
 	});
 function toggleFavorite(passedID){
 		var base_url = "http://localhost:3000/isFavorite?id=";
 		var id = passedID;
-		if(favorite){
+		$.get(base_url.concat(id), function(response){
+			if(response[0]){
 				base_url = "http://localhost:3000/unfavorite?id=";
 				$.get(base_url.concat(id), function(response){
 			});
+			
+			$('.favorite-span[title ="'+id+'"]').addClass("glyphicon-star-empty").removeClass("glyphicon-star");
 		}
 		else{
 			base_url = "http://localhost:3000/favorite?id=";
 			$.get(base_url.concat(id), function(response){
-					console.log(response);
 			});
+			$('.favorite-span[title ="'+id+'"]').addClass("glyphicon-star").removeClass("glyphicon-star-empty");
 		}
-		isFavorite(passedID);
+		});
+		//isFavorite(passedID);
 	}
 	function isFavorite(passedID){
 		var base_url = "http://localhost:3000/isFavorite?id=";
@@ -132,15 +136,11 @@ function toggleFavorite(passedID){
 		if(response[0])
 		{
 			
-			$('#favorite-span').addClass("glyphicon-star").removeClass("glyphicon-star-empty");
-			favorite = true;
+			$('.favorite-span[title ="'+passedID+'"]').addClass("glyphicon-star").removeClass("glyphicon-star-empty");
 
 		}
 		else{
-			$('#favorite-span').addClass("glyphicon-star-empty").removeClass("glyphicon-star");
-
-			favorite =false;
-			
+			$('#favorite-span[title ='+passedID+']').addClass("glyphicon-star-empty").removeClass("glyphicon-star");
 		}
 		});
 	}</script>
