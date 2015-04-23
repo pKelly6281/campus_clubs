@@ -3,27 +3,14 @@
 
 <% if logged_in? %>				
 
-	<h1>Add an Executive Position</h1>
+	<h1>Add an Executive Position Juan ADMIN TEMP PAGE</h1>
 	<div class="row">
 	  <div class="col-md-6 col-md-offset-3">  
 		<%= form_for (@execPo) do |f| %>
 			<%= render 'shared/error_messages_exec_po'%>
 
-			<%= f.label :Position,'Select the Position' %>
-
-			<select name="execpo_id">
-				<%= @execPos.each do |execpo| %>
-				<option value="<%= execpo.id %>"><%= execpo.position %></option>
-				<% end %>
-			</select>
-			
-			<%= f.label :User,'Select the User' %>
-
-			<select name="user_id">
-				<%= @users.each do |user| %>
-				<option value="<%= user.id %>"><%= user.firstname %>  <%= user.lastname %></option>
-				<% end %>
-			</select>
+			<%= f.label :position,'Enter the Position to add' %>
+			<%= f.text_field :position, class: 'form-control' %>
 
 			<%= f.submit "Create Executive Position", class:"btn btn-primary" %>
 		<% end %>

@@ -7,10 +7,10 @@ class EboardsController < ApplicationController
 
   def new
     if logged_in?
+      @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
+      
       @eboard = Eboard.new
       @execPos = ExecPo.all #object used to show all executive positions for the eboard
-      @users = User.all#shows all of the users to be added 
-      @clubs = Club.all
 
     else
       redirect_to root_url
@@ -20,7 +20,7 @@ class EboardsController < ApplicationController
   def create
     @eboard = Eboard.new(eboard_params)
     if @eboard.save
-      render 'show'
+      redirect_to root_url
     else
       render 'new'#show error validation 
     end   

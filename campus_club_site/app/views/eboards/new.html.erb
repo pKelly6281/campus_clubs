@@ -4,25 +4,13 @@
 	<%= form_for (@eboard) do |f| %>
 
 		<%= f.label :User,'Select the User' %>
-		<select name="user_id">
-			<%= @users.each do |user| %>
-				<option value="<%= user.id %>"><%= user.firstname %>  <%= user.lastname %></option>
-			<% end %>
-		</select>
+		<%= f.select(:user_id, @user_options) %>
 
 
 		<%= f.label :Position,'Select the Position' %>
 		<select name="exec_po_id">
 			<%= @execPos.each do |execpo| %>
 				<option value="<%= execpo.id %>"><%= execpo.position %></option>
-			<% end %>
-		</select>
-
-
-		<%= f.label :Club,'Select the Club' %>
-		<select name="club_id">
-			<%= @clubs.each do |club| %>
-				<option value="<%= club.id %>"><%= club.name %></option>
 			<% end %>
 		</select>
 
