@@ -8,6 +8,10 @@ class EboardsController < ApplicationController
   def new
     if logged_in?
       @eboard = Eboard.new
+      @execPos = ExecPo.all #object used to show all executive positions for the eboard
+      @users = User.all#shows all of the users to be added 
+      @clubs = Club.all
+
     else
       redirect_to root_url
     end
@@ -40,8 +44,9 @@ class EboardsController < ApplicationController
   private
   
   def eboard_params
-      params.require(:eboard).permit(:president,:vice_president, :secretary, :treasurer)
+      params.require(:eboard).permit(:user_id, :club_id, :exec_po_id)
   end
+
 
 end
 

@@ -1,38 +1,48 @@
 Rails.application.routes.draw do
 
 
+  #exec position controller
   get 'execPosView' => 'exec_pos#show'
   get 'addExec' => 'exec_pos#new'
 
+  #eboard controller
+  get 'addEboard' => 'eboards#new'
 
 
+  #session controller
   get 'sessions/new'
-
-  get 'clubView' =>'clubs#show'
-
-  get 'clubEdit' =>'clubs#edit'
-
-  get 'clubAdd' =>'clubs#new'
-
-  get 'signup' =>'users#new'
-  get 'people' => 'clubs#people'
-
-  get 'isFavorite' => 'clubs#isFavorite'
-  get 'favorite' => 'clubs#favorite'
-  get 'unfavorite' => 'clubs#unfavorite'
-
-  
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-
-  get 'viewSelected' => 'home#view'#this represents the users Yourclubs.html.erb and not home-view
-  get 'yourClubs' => 'users#yourclubs'
+  #club controller
+  get 'clubView' =>'clubs#show'
+  get 'clubEdit' =>'clubs#edit'
+  get 'clubAdd' =>'clubs#new'
+  get 'people' => 'clubs#people'
+  get 'isFavorite' => 'clubs#isFavorite'
+  get 'favorite' => 'clubs#favorite'
   get 'unfavorite' => 'clubs#unfavorite'
+
+
+  #user controller
+  get 'signup' =>'users#new'
+  get 'yourClubs' => 'users#yourclubs'
+
+
+  #home controller
   get 'requests' => 'home#requests'
   get  'about' =>'home#about'
   root 'home#home'
+  get 'viewSelected' => 'home#view'#this represents the users Yourclubs.html.erb and not home-view
+
+
+
+
+
+
+
+ 
 
 
   resources :users
