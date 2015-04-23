@@ -2,7 +2,10 @@ class ExecPosController < ApplicationController
 	
 	def new
 		@execPo = ExecPo.new
-		@user = current_user
+		@execPos = ExecPo.all
+
+		#@user = current_user
+		@users = User.all
 	end
 
 	def show

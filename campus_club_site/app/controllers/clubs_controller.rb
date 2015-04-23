@@ -12,6 +12,7 @@ class ClubsController < ApplicationController
   def new
   	if logged_in?
       @club = Club.new
+      @user = current_user
   	else
   		redirect_to root_url
   	end
@@ -61,6 +62,6 @@ class ClubsController < ApplicationController
   
   private
   def club_params
-      params.require(:club).permit(:name,:desc, :meetTime, :meetLoc)
+      params.require(:club).permit(:name,:desc, :meetTime, :meetLoc, :user_id)
     end
 end

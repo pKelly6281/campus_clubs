@@ -9,12 +9,28 @@
 		<%= form_for (@execPo) do |f| %>
 			<%= render 'shared/error_messages_exec_po'%>
 
-			<%= f.label :position,'Position Name' %>
-			<%= f.text_field :position, class: 'form-control' %>
+			<%= f.label :Position,'Select the Position' %>
+
+			<select name="execpo_id">
+				<%= @execPos.each do |execpo| %>
+				<option value="<%= execpo.id %>"><%= execpo.position %></option>
+				<% end %>
+			</select>
+			
+			<%= f.label :User,'Select the User' %>
+
+			<select name="user_id">
+				<%= @users.each do |user| %>
+				<option value="<%= user.id %>"><%= user.firstname %>  <%= user.lastname %></option>
+				<% end %>
+			</select>
 
 			<%= f.submit "Create Executive Position", class:"btn btn-primary" %>
 		<% end %>
-		
+
+			
+
+	
 	  </div>
 	</div>
 
