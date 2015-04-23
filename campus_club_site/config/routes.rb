@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
 
-  get 'eboardEdit' => 'eboards#edit'
-  get 'eboardView' => 'eboards#show'
-  get 'eboardAdd' => 'eboards#new'
+  get 'execPosView' => 'exec_pos#show'
+  get 'addExec' => 'exec_pos#new'
 
 
 
@@ -38,6 +37,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :clubs
+  resources :exec_pos
   resources :eboards
 
 

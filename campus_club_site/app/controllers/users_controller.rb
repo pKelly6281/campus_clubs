@@ -3,6 +3,14 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    redirect_to root_url
+  end
+
+  def index
+    redirect_to root_url
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -13,17 +21,17 @@ class UsersController < ApplicationController
   end
 
   def edit
+    redirect_to root_url
   end
 
   def update
   end
 
-  def requests
-  end
-
   def yourclubs
-    @users = Club.paginate(page: params[:page], :per_page => 10) #@users contains the Club db data
-    @userClubs = current_user.clubs
+    if logged_in?
+      @users = Club.paginate(page: params[:page], :per_page => 10) #@users contains the Club db data
+      @userClubs = current_user.clubs
+    end
   end
   private
     def user_params

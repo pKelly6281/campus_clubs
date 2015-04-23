@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ExecutivePositionTest < ActiveSupport::TestCase
+class ExecPosControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

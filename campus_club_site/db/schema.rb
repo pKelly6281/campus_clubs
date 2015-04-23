@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421120403) do
+ActiveRecord::Schema.define(version: 20150422154511) do
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -31,19 +31,17 @@ ActiveRecord::Schema.define(version: 20150421120403) do
   add_index "clubs_users", ["user_id"], name: "index_clubs_users_on_user_id"
 
   create_table "eboards", force: true do |t|
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
     t.integer  "user_id"
     t.integer  "club_id"
-    t.integer  "executivepostion_id"
+    t.integer  "exec_po_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "eboards", ["club_id"], name: "index_eboards_on_club_id"
-  add_index "eboards", ["executivepostion_id"], name: "index_eboards_on_executivepostion_id"
-  add_index "eboards", ["user_id"], name: "index_eboards_on_user_id"
-
-  create_table "executive_positions", force: true do |t|
-    t.string "position"
+  create_table "exec_pos", force: true do |t|
+    t.string   "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: true do |t|
@@ -54,13 +52,5 @@ ActiveRecord::Schema.define(version: 20150421120403) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
-
-  create_table "users_clubs", id: false, force: true do |t|
-    t.integer "users_id"
-    t.integer "clubs_id"
-  end
-
-  add_index "users_clubs", ["clubs_id"], name: "index_users_clubs_on_clubs_id"
-  add_index "users_clubs", ["users_id"], name: "index_users_clubs_on_users_id"
 
 end

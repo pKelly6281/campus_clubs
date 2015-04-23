@@ -9,4 +9,7 @@ class ApplicationController < ActionController::Base
   def notLoggedIn
   	redirect_to login_url
   end 
+
+
+
 end
