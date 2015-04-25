@@ -1,5 +1,5 @@
 class ExecPosController < ApplicationController
-	
+	#this page will only be accessible to the user who is an admin which is just me and patrick. 
 	def new#code below may actually belong inside of the eboard controller
 		@execPo = ExecPo.new #object used in form
 	end
