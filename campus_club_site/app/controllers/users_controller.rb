@@ -32,6 +32,12 @@ class UsersController < ApplicationController
       @user = current_user
       @users = Club.paginate(page: params[:page], :per_page => 10) #@users contains the Club db data
       @userClubs = current_user.clubs
+
+      #user eboard stuff below
+      @all_user_eboards = @user.eboards##gather all of the eboard associations for this users club page
+      
+
+
     end
   end
   private

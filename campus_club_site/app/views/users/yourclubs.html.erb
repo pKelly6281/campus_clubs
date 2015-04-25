@@ -56,7 +56,9 @@
 							<th>Your Club Name</th>
 							<th>Meeting Times</th>
 						</tr>
-						<%= render @userClubs %>
+						
+						<%= render @userClubs%>
+
 					</table>
 					<%= will_paginate %>
 				</table>
@@ -80,6 +82,12 @@
 						<th>Club Name </th>
 					</tr>
 
+					<% @all_user_eboards.each do |f| %>
+						<tr>	
+							<td><%= f.exec_po.position%></p></td>
+							<td><%= f.club.name%></td>
+						</tr>
+					<% end %>					
 
 				</table>
 
