@@ -11,7 +11,7 @@ class ExecPosController < ApplicationController
 
 	def create
 		@exec = ExecPo.new(execPo_params)
-		if @execPo.save
+		if @exec.save
 			redirect_to root_url
 		else
 			render 'new'#show error validation 
@@ -30,7 +30,7 @@ class ExecPosController < ApplicationController
 	private
 
 	def execPo_params
-		params.require(:execPo).permit(:position)
+		params.require(:exec_po).permit(:position)
 	end
 
 end
