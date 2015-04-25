@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       redirect_to root_url
     else
       render 'new'
@@ -30,7 +31,10 @@ class UsersController < ApplicationController
   def yourclubs
     if logged_in?
       @user = current_user
-      @users = Club.paginate(page: params[:page], :per_page => 10) #@users contains the Club db data
+      @users = Club.paginate(page: params[:page], :per_page => 10) #@users contains all the clubs
+
+      @userCreatedClubs = Club.where(user_id:@user.id)#finds all of the created clubs by the user that is logged in
+      
       @userClubs = current_user.clubs
 
       #user eboard stuff below

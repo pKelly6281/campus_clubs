@@ -2,6 +2,8 @@
 <!-- Enrolled Clubs Below-->
 
 <% if logged_in? %>
+	<h1>Hello <%= @user.firstname %> <%= @user.lastname %>  </h1>
+
 	<div class="row ">
 		<div class="col-md-1 "></div><!-- Formatting -->
 
@@ -37,7 +39,8 @@
 					</tr>
 
 
-					<%= render @users%><!-- The @users object really deals with the club objects. I believe this is the case because we are gathering the club objects from within the users controller -->
+					<%= render @userCreatedClubs%><!-- The @userCreatedClubs object really deals with the club objects.-->
+
 				</table>
 				
 				<%= will_paginate %>
