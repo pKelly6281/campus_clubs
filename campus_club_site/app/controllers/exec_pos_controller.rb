@@ -1,5 +1,5 @@
 class ExecPosController < ApplicationController
-	
+	#this page will only be accessible to the user who is an admin which is just me and patrick. 
 	def new#code below may actually belong inside of the eboard controller
 		@execPo = ExecPo.new #object used in form
 	end
@@ -10,7 +10,7 @@ class ExecPosController < ApplicationController
 
 
 	def create
-		@exec = ExecPo.new(execPo_params)
+		@execPo = ExecPo.new(exec_params)
 		if @execPo.save
 			redirect_to root_url
 		else
@@ -29,8 +29,8 @@ class ExecPosController < ApplicationController
 
 	private
 
-	def execPo_params
-		params.require(:execPo).permit(:position)
+	def exec_params
+		params.require(:exec_po).permit(:position)
 	end
 
 end
