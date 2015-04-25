@@ -28,18 +28,27 @@ class EboardsController < ApplicationController
  
   def edit
     @eboard = Eboard.find(params[:id])
+    @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
+    @execPo = ExecPo.find(@eboard.exec_po_id)
   end
 
   def update
     @eboard = Eboard.find(params[:id])
     if @eboard.update_attributes(eboard_params)
-      flash[:success] = "Executive Board has been updated. Notifications have been sent to the E-board members"
-      redirect_to @eboard
+      flash[:success] = "Executive Board has been updated."
+      redirect_to Club.find(@eboard.club_id)
     else
       render 'edit'
     end
   end 
-
+  def showAll
+    if logged_in?
+      @club = Club.find(params[:id])
+      @eboard = Eboard.where("club_id = "+@club.id.to_s)
+    else
+      redirect_to root_url
+    end
+  end
   private
   
   def eboard_params

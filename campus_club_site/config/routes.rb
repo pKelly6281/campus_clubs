@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   #eboard controller
   get 'addEboard' => 'eboards#new'
+  get 'showAll' => 'eboards#showAll'
 
 
   #session controller

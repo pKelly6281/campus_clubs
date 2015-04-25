@@ -1,0 +1,24 @@
+<h1>I'm ready to show some stuff.</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3"> 
+  		<table class="table table-hover table-condensed">
+  			<tr>
+  				<th>Position</th>
+  				<th>Name</th>
+  				<th></th>
+  			<tr>
+		<%
+			@eboard.each do |e|
+
+		%>
+		<tr>
+			<td><%=ExecPo.find(e.exec_po_id).position%></td>
+			<td> <%=User.find(e.user_id).firstname%> <%=User.find(e.user_id).lastname%></td> 
+			<td><%= link_to "Edit Position", edit_eboard_path(e), class: "btn btn-primary btn-sm"%></td>
+		</tr>
+		<%
+			end
+		%>
+	</table>
+  </div>
+</div>
