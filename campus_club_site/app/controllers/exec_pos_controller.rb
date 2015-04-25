@@ -29,8 +29,8 @@ class ExecPosController < ApplicationController
 
 	private
 
-		def execPo_params
-			params.require(:execPo).permit(:position)
-		end
+	def execPo_params
+		params.require(:execPo).permit(:position)
+	end
 
 end
