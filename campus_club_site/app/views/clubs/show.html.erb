@@ -16,7 +16,7 @@
 			</p>
 
 			<%= link_to "Edit Club", edit_club_path(@club.id), class: "btn btn-primary btn-sm"%>
-			<%= link_to "Add Executive Member ", addEboard_path(@club.id), class: "btn btn-primary btn-sm"%>
+			<%= link_to "Add Executive Member ", addEboard_path(:id => @club.id), class: "btn btn-primary btn-sm"%>
 
 		</div>
 

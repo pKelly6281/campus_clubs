@@ -8,10 +8,9 @@ class EboardsController < ApplicationController
   def new
     if logged_in?
       @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
-      
+      @execPo_options = ExecPo.all.map{|e| [e.position, e.id]}
+      @club_options = Club.find(params[:id])
       @eboard = Eboard.new
-      @execPos = ExecPo.all #object used to show all executive positions for the eboard
-
     else
       redirect_to root_url
     end
