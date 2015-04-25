@@ -18,6 +18,8 @@
 			<%= f.label :meetLoc, 'Meeting Location' %>
 			<%= f.text_field :meetLoc, class: 'form-control'%>
 
+			<%= f.hidden_field :user_id, :value =>current_user.id %>
+
 			<%= f.submit "Create Club", class:"btn btn-primary" %>
 		<% end %>
 	  </div>
