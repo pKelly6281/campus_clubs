@@ -40,7 +40,17 @@ class EboardsController < ApplicationController
       render 'edit'
     end
   end 
+  def showAll
+    if logged_in?
+      @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
+      
+      @eboard = Eboard.new
+      @execPos = ExecPo.all #object used to show all executive positions for the eboard
 
+    else
+      redirect_to root_url
+    end
+  end
   private
   
   def eboard_params
