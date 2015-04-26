@@ -23,6 +23,8 @@ class EboardsController < ApplicationController
   def create
     @eboard = Eboard.new(eboard_params)
     if @eboard.save
+      @club.updated_at = Time.now
+      @club.save
       redirect_to root_url
     else
       render 'new'#show error validation 
@@ -45,9 +47,12 @@ class EboardsController < ApplicationController
 
   def update
     @eboard = Eboard.find(params[:id])
+    @club = Club.find(@eboard.club_id)
     if @eboard.update_attributes(eboard_params)
       flash[:success] = "Executive Board has been updated."
-      redirect_to Club.find(@eboard.club_id)
+      @club.updated_at = Time.now
+      @club.save
+      redirect_to @club
     else
       render 'edit'
     end
