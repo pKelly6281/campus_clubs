@@ -2,6 +2,9 @@
 @import "bootstrap";
 
 
+.menu{
+ background-color: #12396F;
+}
 #div-border
 {
   border:100px, solid, black;
@@ -210,4 +213,18 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+
+.menu-item:hover{
+  background-color: #ffb605  !important;
+
+}
+html{
+  height:100%;
+}
+body{
+  height:100%
+}
+.container-full{
+  height:100%
 }
