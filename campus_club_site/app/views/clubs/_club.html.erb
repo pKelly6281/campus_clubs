@@ -1,3 +1,4 @@
+<% if (TimeDifference.between(club.updated_at,Time.now).in_years<=1) %>
 <tr>
 	<td><%= link_to club.name, club %></td>
 	<td><%= club.meetTime %>
@@ -22,3 +23,4 @@
 
 	<% end %>
 </tr>
+<% end %>

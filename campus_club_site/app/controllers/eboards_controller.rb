@@ -6,6 +6,7 @@ class EboardsController < ApplicationController
   end
 
   def new
+<<<<<<< HEAD
     if logged_in?
       @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
       @execPo_options = ExecPo.all.map{|e| [e.position, e.id]}
@@ -22,12 +23,27 @@ class EboardsController < ApplicationController
       @eboard = Eboard.new
     else
       redirect_to root_url
+=======
+    @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
+    @execPo_options = ExecPo.all.map{|e| [e.position, e.id]}
+    @club_options = Club.find(params[:id])
+    @eboard = Eboard.new
+    @club = @club_options
+    @creator = User.find(@club.user_id)
+    @user = current_user
+    if !(logged_in? && (@creator.id == @user.id || @eboard.where("user_id="+@user.id.to_s).exists?))
+      flash[:danger] = "You cannot add new Executive Members to this club"
+      redirect_to @club
+>>>>>>> 4225f87b29be39629456d95fa145d86aecd5b34c
     end
+  
   end
 
   def create
     @eboard = Eboard.new(eboard_params)
     if @eboard.save
+      @club.updated_at = Time.now
+      @club.save
       redirect_to root_url
     else
       
@@ -40,23 +56,35 @@ class EboardsController < ApplicationController
     @eboard = Eboard.find(params[:id])
     @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
     @execPo = ExecPo.find(@eboard.exec_po_id)
+    @club = Club.find(@eboard.club_id)
+    @creator = User.find(@club.user_id)
+    @user = current_user
+    if !(logged_in? && (@creator.id == @user.id || @eboard.where("user_id="+@user.id.to_s).exists?))
+      flash[:danger] = "You cannot edit the Executive Members of this club"
+      redirect_to @club
+    end
   end
 
   def update
     @eboard = Eboard.find(params[:id])
+    @club = Club.find(@eboard.club_id)
     if @eboard.update_attributes(eboard_params)
       flash[:success] = "Executive Board has been updated."
-      redirect_to Club.find(@eboard.club_id)
+      @club.updated_at = Time.now
+      @club.save
+      redirect_to @club
     else
       render 'edit'
     end
   end 
   def showAll
-    if logged_in?
       @club = Club.find(params[:id])
       @eboard = Eboard.where("club_id = "+@club.id.to_s)
-    else
-      redirect_to root_url
+      @creator = User.find(@club.user_id)
+      @user = current_user
+    if !(logged_in? && (@creator.id == @user.id || @eboard.where("user_id="+@user.id.to_s).exists?))
+      flash[:danger] = "You cannot edit the Executive Members of this club"
+      redirect_to @club
     end
   end
   private

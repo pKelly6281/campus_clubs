@@ -1,6 +1,9 @@
-<h1>I'm ready to show some stuff.</h1>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3"> 
+  	<% if(@eboard.empty?) %>
+  		<h1>There is not currently and eboard for this club. Please add new Executive Members <%= link_to "here ", addEboard_path(:id => @club.id)%>.</h1>
+  	<% else %>
   		<table class="table table-hover table-condensed">
   			<tr>
   				<th>Position</th>
@@ -20,5 +23,6 @@
 			end
 		%>
 	</table>
+	<% end %>
   </div>
 </div>
