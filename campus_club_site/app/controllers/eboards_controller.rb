@@ -9,7 +9,16 @@ class EboardsController < ApplicationController
     if logged_in?
       @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
       @execPo_options = ExecPo.all.map{|e| [e.position, e.id]}
-      @club_options = Club.find(params[:id])
+      @current_club = Club.find(params[:id])
+
+      #needs to gather the positions that are not already taken
+      ##look at the current club
+      ###check if that club has eboard tables
+      ####check what the eboard table consists of and only show what it does not have
+      @currentEboardMembers = @current_club.eboards
+
+    
+
       @eboard = Eboard.new
     else
       redirect_to root_url
@@ -21,6 +30,7 @@ class EboardsController < ApplicationController
     if @eboard.save
       redirect_to root_url
     else
+      
       render 'new'#show error validation 
     end   
   end

@@ -1,5 +1,33 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">  
+	<div class="col-md-2 col-md-offset-5 jumbotron">
+		
+		<div class="div-center">
+			<h3><b>Positions that already exist in this club</b></h3>
+		</div>	
+		<table class= "table table-hover table-condensed  alert alert-info">
+			<tr>
+				<th>Executive Position</th>
+				<th>Executive Member </th>
+			</tr>
+
+			<% @currentEboardMembers.each do |f| %>
+				<tr>	
+					<td><%= f.exec_po.position%></td>
+					<td><%= f.user.firstname%> <%= f.user.lastname%></td>
+				</tr>
+			<% end %>					
+		</table>
+		
+	</div>
+</div>
+
+
+
+<div class="row">
+	
+  <div class="col-md-4 col-md-offset-4 div-center jumbotron">  
+	  <h3 div="">Add another Executive Member to <%=@current_club.name%></h3>
+
 	<%= form_for (@eboard) do |f| %>
 
 		<%= f.label :User,'Select the User' %>
@@ -9,16 +37,18 @@
 		<%= f.select(:exec_po_id, @execPo_options) %>
 
 		
-		<%= f.hidden_field :club_id, :value =>@club_options.id %>
+		<%= f.hidden_field :club_id, :value =>@current_club.id %>
 
 		<%= f.submit "Add Executive Member", class:"btn btn-primary" %>
 
 	<% end %>
 
-	
+	<%= render 'shared/error_messages_eboard'%>
 
-	
-	
+	<div class="div-center alert alert-danger">
+			<h3><b>Please do not add duplicate positions</b></h3>
+	</div>	
+
   </div>
 </div>
 
