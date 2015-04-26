@@ -5,8 +5,17 @@ class ClubsController < ApplicationController
     @user = current_user
     @creator = User.find(@club.user_id)
     @eboard = Eboard.where("club_id="+@club.id.to_s)
+    @isThere = false
+    @execPos = ExecPo.all.map{|e| [e.position, e.id]}
     if(logged_in? && (@creator.id == @user.id || @eboard.where("user_id="+@user.id.to_s).exists?))
-      @showTools = true;
+      @showTools = true
+      @execPos.each do |e|
+          if !(@club.eboards.where("exec_po_id ="+e[1].to_s).exists?)
+              @isThere = true
+              break
+          end
+    end
+
     else
       @showTools = false;
     end

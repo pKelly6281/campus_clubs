@@ -16,7 +16,9 @@
 				</p>
 
 				<%= link_to "Edit Club", edit_club_path(@club.id), class: "btn btn-primary btn-sm"%>
+				<% if(@isThere) %>
 				<%= link_to "Add Executive Member ", addEboard_path(:id => @club.id), class: "btn btn-primary btn-sm"%>
+				<% end %>
 				<%= link_to "Update Executive Members ", showAll_path(:id => @club.id), class: "btn btn-primary btn-sm"%>
 
 			</div>
@@ -48,7 +50,7 @@
 			</div>	
 
 		</div>
-
+<% if(logged_in?) %>
 		<div class="col-md-3 "><!-- This is where the user is capable of seeing the eboard they are a part of -->
 			<div class="row">
 				<button id='favorite' class = "btn btn-default">
@@ -57,7 +59,7 @@
 			
 			</div>
 		</div>
-
+<% end %>
 		<div class="col-md-1 "></div><!-- This is temporary spacing on the side for formattting-->
 
 	</div>

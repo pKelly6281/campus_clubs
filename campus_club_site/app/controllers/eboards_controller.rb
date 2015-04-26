@@ -3,15 +3,31 @@ class EboardsController < ApplicationController
     #shows the eboard individual page
     @eboard = Eboard.find(params[:id])
     @user = current_user
+
   end
 
   def new
     @eboard = Eboard.new
     @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
     @execPo_options = ExecPo.all.map{|e| [e.position, e.id]}
-   
+    @exePostion_options = Array.new
+
     @club_options = Club.find(params[:id])
     @club = @club_options
+    @isThere = false;
+    @execPo_options.each do |e|
+          if !(@club.eboards.where("exec_po_id ="+e[1].to_s).exists?)
+              @exePo = ExecPo.find(e[1])
+              @temp = Array.new
+              @temp.push(@exePo.position, @exePo.id)
+              @exePostion_options.push(@temp)
+              @isThere = true
+          end
+    end
+    if !(@isThere)
+      flash[:danger] = "There are no new positions to add"
+      redirect_to @club
+    end
 
     @creator = User.find(@club.user_id)
     @user = current_user
@@ -30,9 +46,10 @@ class EboardsController < ApplicationController
   def create
     @eboard = Eboard.new(eboard_params)
     if @eboard.save
+      @club = Club.find(@eboard.club_id)
       @club.updated_at = Time.now
       @club.save
-      redirect_to root_url
+      redirect_to @club
     else
       
       render 'new'#show error validation 
