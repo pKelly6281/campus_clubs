@@ -90,7 +90,7 @@
 					<% @all_user_eboards.each do |f| %>
 						<tr>	
 							<td><%= f.exec_po.position%></p></td>
-							<td><%= f.club.name%></td>
+							<td><%=link_to f.club.name, f.club%></td>
 						</tr>
 					<% end %>					
 

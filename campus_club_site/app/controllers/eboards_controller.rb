@@ -6,36 +6,24 @@ class EboardsController < ApplicationController
   end
 
   def new
-<<<<<<< HEAD
-    if logged_in?
-      @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
-      @execPo_options = ExecPo.all.map{|e| [e.position, e.id]}
-      @current_club = Club.find(params[:id])
-
-      #needs to gather the positions that are not already taken
-      ##look at the current club
-      ###check if that club has eboard tables
-      ####check what the eboard table consists of and only show what it does not have
-      @currentEboardMembers = @current_club.eboards
-
-    
-
-      @eboard = Eboard.new
-    else
-      redirect_to root_url
-=======
+    @eboard = Eboard.new
     @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
     @execPo_options = ExecPo.all.map{|e| [e.position, e.id]}
+   
     @club_options = Club.find(params[:id])
-    @eboard = Eboard.new
     @club = @club_options
+
     @creator = User.find(@club.user_id)
     @user = current_user
-    if !(logged_in? && (@creator.id == @user.id || @eboard.where("user_id="+@user.id.to_s).exists?))
-      flash[:danger] = "You cannot add new Executive Members to this club"
-      redirect_to @club
->>>>>>> 4225f87b29be39629456d95fa145d86aecd5b34c
-    end
+
+    @currentEboardMembers = @club.eboards
+
+    # if !(logged_in? && (@creator.id == @user.id || @eboard.where("user_id="+@user.id.to_s).exists?))
+    #  flash[:danger] = "You cannot add new Executive Members to this club"
+    #  redirect_to @club
+    #end
+
+    #code above is not working 
   
   end
 

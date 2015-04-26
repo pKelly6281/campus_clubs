@@ -1,3 +1,7 @@
+Users that are part of an eboard currently cannot see the club because they did not create it. yourclubs controller
+
+
+
 Bugs
 	FIXED:::Favorite toggle js doesnt work on home/yourClubs
 	Add Eboard member instead of add Exe_po

@@ -26,7 +26,7 @@
 <div class="row">
 	
   <div class="col-md-4 col-md-offset-4 div-center jumbotron">  
-	  <h3 div="">Add another Executive Member to <%=@current_club.name%></h3>
+	  <h3 div="">Add another Executive Member to <%=@club.name%></h3>
 
 	<%= form_for (@eboard) do |f| %>
 
@@ -37,7 +37,7 @@
 		<%= f.select(:exec_po_id, @execPo_options) %>
 
 		
-		<%= f.hidden_field :club_id, :value =>@current_club.id %>
+		<%= f.hidden_field :club_id, :value =>@club.id %>
 
 		<%= f.submit "Add Executive Member", class:"btn btn-primary" %>
 
