@@ -68,7 +68,7 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
     if @club.save
-      render 'show'
+      redirect_to @club
     else
       render 'new'#show error validation 
     end   

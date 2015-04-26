@@ -26,27 +26,47 @@
 		</div>
 
 		<div class="col-md-5 jumbotron"><!-- This is where the user sees the clubs they are eboard of and favotire as well -->
-			<div class="row">
-				<h2 class="text-center">
-					<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-						Your Campus Clubs
-					<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-				</h2>
-				<table class= "table table-hover table-condensed">
-					<tr>
-						<th>Your Club Name</th>
-						<th>Meeting Times</th>
-						<th>Favorite Status</th>
-					</tr>
+				<div class="row">
+					<h2 class="text-center">
+						<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+						Executive Clubs and Positions
+						<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+					</h2>
+					<table class= "table table-hover table-condensed">
+						<tr>
+							<th>Executive Position</th>
+							<th>Club Name </th>
+							<th>Club Meeting time </th>
+						</tr>
+
+						<% @all_user_eboards.each do |f| %>
+							<tr>	
+								<td><%= f.exec_po.position%></p></td>
+								<td><%=link_to f.club.name, f.club%></td>
+								<td><%= f.club.meetTime+" @ "+f.club.meetLoc%></td>
+								<% if logged_in? %>
+									<td>
+										<button class='favorite' class = "btn btn-small">
+											<% if(f.club.users.exists?(current_user.id)) %>
+											<span  title= "<%= f.club.id %>" class="glyphicon glyphicon-star favorite-span" aria-hidden="true">Favorite</span>
+											<% 
+										else
+											%>
+											<span  title= "<%= f.club.id %>"class="glyphicon glyphicon-star-empty favorite-span" aria-hidden="true">Favorite</span>
+											<%
+										end
+										%>
+										</button>
+									</td>					
+
+								<% end %>
+							</tr>
+						<% end %>
 
 
-					<%= render @userCreatedClubs%><!-- The @userCreatedClubs object really deals with the club objects.-->
-
-				</table>
-				
-				<%= will_paginate %>
-
-			</div>
+					</table>
+					<%= will_paginate @all_user_eboards, :param_name => 'eboard'%>
+				</div>
 
 			<div class="row">
 				<h2 class="text-center">
@@ -65,39 +85,15 @@
 						<%= render @userClubs%>
 
 					</table>
-					<%= will_paginate %>
 				</table>
-					
+					<%= will_paginate @userClubs, :param_name => 'clubsF'%>
 			</div>
 
 
 
 		</div>
 
-		<div class="col-md-3 jumbotron"><!-- This is where the user is capable of seeing the eboard they are a part of -->
-			<div class="row">
-				<h2 class="text-center">
-					<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-					Executive Clubs and Positions
-					<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-				</h2>
-				<table class= "table table-hover table-condensed">
-					<tr>
-						<th>Executive Position</th>
-						<th>Club Name </th>
-					</tr>
-
-					<% @all_user_eboards.each do |f| %>
-						<tr>	
-							<td><%= f.exec_po.position%></p></td>
-							<td><%=link_to f.club.name, f.club%></td>
-						</tr>
-					<% end %>					
-
-				</table>
-
-			</div>
-		</div>
+		
 
 		<div class="col-md-1 "></div><!-- This is temporary spacing on the side for formattting-->
 

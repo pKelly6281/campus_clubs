@@ -35,10 +35,10 @@ class UsersController < ApplicationController
 
       @userCreatedClubs = Club.where(user_id:@user.id)#finds all of the created clubs by the user that is logged in
       
-      @userClubs = current_user.clubs
+      @userClubs = current_user.clubs.paginate(page: params[:clubsF], :per_page => 10)
 
       #user eboard stuff below
-      @all_user_eboards = @user.eboards##gather all of the eboard associations for this users club page
+      @all_user_eboards = @user.eboards.paginate(page: params[:eboard], :per_page => 10)##gather all of the eboard associations for this users club page
       
 
 
