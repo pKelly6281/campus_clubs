@@ -3,10 +3,25 @@ class ClubsController < ApplicationController
     #shows the clubs individual page
     @club = Club.find(params[:id])
     @user = current_user
+    @creator = User.find(@club.user_id)
+    @eboard = Eboard.where("club_id="+@club.id.to_s)
+    if(logged_in? && (@creator.id == @user.id || @eboard.where("user_id="+@user.id.to_s).exists?))
+      @showTools = true;
+    else
+      @showTools = false;
+    end
   end
 
   def edit
     @club = Club.find(params[:id])
+    @user = current_user
+    @creator = User.find(@club.user_id)
+    @eboard = Eboard.where("club_id="+@club.id.to_s)
+
+    if !(logged_in? && (@creator.id == @user.id || @eboard.where("user_id="+@user.id.to_s).exists?))
+      flash[:danger] = "You cannot edit this club"
+      redirect_to @club
+    end
   end
 
   def new
