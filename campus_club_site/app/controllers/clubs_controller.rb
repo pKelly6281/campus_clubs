@@ -7,6 +7,8 @@ class ClubsController < ApplicationController
     @eboard = Eboard.where("club_id="+@club.id.to_s)
     @isThere = false
     @execPos = ExecPo.all.map{|e| [e.position, e.id]}
+    @currentEboardMembers = @club.eboards
+
     if(logged_in? && (@creator.id == @user.id || @eboard.where("user_id="+@user.id.to_s).exists?))
       @showTools = true
       @execPos.each do |e|

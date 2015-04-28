@@ -7,40 +7,53 @@ class EboardsController < ApplicationController
   end
 
   def new
-    @eboard = Eboard.new
-    @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
-    @execPo_options = ExecPo.all.map{|e| [e.position, e.id]}
-    @exePostion_options = Array.new
+    if logged_in?
+      if !(params[:id].nil?)  
+        @eboard = Eboard.new
+        @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
+        @execPo_options = ExecPo.all.map{|e| [e.position, e.id]}
+        @exePostion_options = Array.new
 
-    @club_options = Club.find(params[:id])
-    @club = @club_options
-    @isThere = false;
-    @execPo_options.each do |e|
-          if !(@club.eboards.where("exec_po_id ="+e[1].to_s).exists?)
-              @exePo = ExecPo.find(e[1])
-              @temp = Array.new
-              @temp.push(@exePo.position, @exePo.id)
-              @exePostion_options.push(@temp)
-              @isThere = true
-          end
+        @club_options = Club.find(params[:id])
+        @club = @club_options
+        @isThere = false;
+        @execPo_options.each do |e|
+              if !(@club.eboards.where("exec_po_id ="+e[1].to_s).exists?)
+                  @exePo = ExecPo.find(e[1])
+                  @temp = Array.new
+                  @temp.push(@exePo.position, @exePo.id)
+                  @exePostion_options.push(@temp)
+                  @isThere = true
+              end
+        end
+        if !(@isThere)
+          flash[:danger] = "There are no new positions to add"
+          redirect_to @club
+        end
+
+        @creator = User.find(@club.user_id)
+        @user = current_user
+
+        @currentEboardMembers = @club.eboards
+
+        # if !(logged_in? && (@creator.id == @user.id || @eboard.where("user_id="+@user.id.to_s).exists?))
+        #  flash[:danger] = "You cannot add new Executive Members to this club"
+        #  redirect_to @club
+        #end
+
+        #code above is not working
+
+      else
+        redirect_to root_url
+
+
+      end
+    else 
+      redirect_to root_url
+
+
+
     end
-    if !(@isThere)
-      flash[:danger] = "There are no new positions to add"
-      redirect_to @club
-    end
-
-    @creator = User.find(@club.user_id)
-    @user = current_user
-
-    @currentEboardMembers = @club.eboards
-
-    # if !(logged_in? && (@creator.id == @user.id || @eboard.where("user_id="+@user.id.to_s).exists?))
-    #  flash[:danger] = "You cannot add new Executive Members to this club"
-    #  redirect_to @club
-    #end
-
-    #code above is not working 
-  
   end
 
   def create
