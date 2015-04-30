@@ -10,7 +10,7 @@ class EboardsController < ApplicationController
     if logged_in?
       if !(params[:id].nil?)  
         @eboard = Eboard.new
-        @user_options = User.all.map{|u| [ u.firstname + " " + u.lastname, u.id ] }
+        @user_options = User.order(firstname: :asc).map{|u| [ u.firstname + " " + u.lastname, u.id ] }
         @execPo_options = ExecPo.all.map{|e| [e.position, e.id]}
         @exePostion_options = Array.new
 

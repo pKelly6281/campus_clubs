@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423164314) do
+ActiveRecord::Schema.define(version: 20150430035209) do
 
   create_table "clubs", force: true do |t|
     t.string   "name"
-    t.string   "desc"
-    t.string   "meetTime"
+    t.text     "desc"
+    t.text     "meetTime"
     t.string   "meetLoc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

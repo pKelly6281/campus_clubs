@@ -7,6 +7,8 @@
           <li><%= link_to "Home",   root_path , class: 'menu-item'%></li>
           <li><%= link_to "Your Clubs",   yourClubs_path, class: 'menu-item' %></li>
           <li><%= link_to "Log out", logout_path , class: 'menu-item', method: "delete"%></li>
+
+          <li><p class="welcome">Welcome, <%=current_user.firstname %> <%=current_user.lastname%></p></li>
         <% else %>
           <li><%= link_to "Home",   root_path , class: 'menu-item'%></li>
           <li><%= link_to "Log in", login_path , class: 'menu-item'%></li>

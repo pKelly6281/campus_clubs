@@ -7,8 +7,8 @@ class Club < ActiveRecord::Base
 	has_and_belongs_to_many :users
 	#validate club variables 
 	validates :name, presence: true, length: { maximum: 50}
-	validates :desc, presence: true, length: { maximum: 150}
-	validates :meetTime, presence: true, length: { maximum: 30}
+	validates :desc, presence: true
+	validates :meetTime, presence: true
 	validates :meetLoc, presence: true, length: { maximum: 30}
 
 	def club_params

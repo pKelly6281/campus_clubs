@@ -16,8 +16,9 @@ class User < ActiveRecord::Base
 	#email validation 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, length: { maximum: 150 },
-                    format: { with: VALID_EMAIL_REGEX },
+                    format: { with: /\A([^@\s]+)@((mcla+\.)+edu)\z/i , :message =>"must be a mcla.edu address"},
                     uniqueness: { case_sensitive: false }
+
 
 
     has_secure_password
